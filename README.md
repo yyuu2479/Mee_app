@@ -1,24 +1,25 @@
-# README
+# アプリ名：Mee
+![logo (1)](https://user-images.githubusercontent.com/86969200/135372013-e66c1e33-bf95-453c-926d-0c53aaeed771.png)
+## 概要
+自身の就活用のポートフォリオとして作成いたしました。
+今流行しているマッチングアプリ風のアプリケーションを作成いたしました。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイト概要
+誰かと飲みたい、遊びたいといった多方面なインターネット上の出会いを支援するようなアプリケーションです。
 
-Things you may want to cover:
+### テーマを選んだ理由
+現在人が出会う機会は激減しており、そんな中で誰かと出会いたい、話したいという感情を持つ人は少なからずいると思いました。
+そんな時に、こういうアプリケーションを作ってみたら面白そうだなと感じたため作成してみようと思いました。
 
-* Ruby version
+### ターゲットユーザー
+- １８歳以上対象(未成年は危ないので)
 
-* System dependencies
+## 設計書
+- 作成するか未定なのでとりあえずこの状態にしておきます。
+- 作成でき次第追加していきたいと思います。
 
-* Configuration
+## 機能一覧(チャレンジ要素一覧)
+https://docs.google.com/spreadsheets/d/1JIKrrLIDg4l8e_K9Gf3ELgxnmuX5sFx62ghOC43_gzY/edit?usp=sharing
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 実装していく段階で画像などは使うはずなので、使う度に記入していきたいと思います。（現段階ではどういう画像を使うか決まっていないので）
