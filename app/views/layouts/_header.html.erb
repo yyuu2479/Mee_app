@@ -1,0 +1,41 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+    <!--サイトロゴ-->
+      <div>
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png', size: '80x80'%>
+        <% end%>
+      </div>
+      <!--ナビゲーションリンク-->
+      <div>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <%= link_to user_path(current_user) do %>
+              <%= attachment_image_tag current_user, :image_id, format: 'jpeg', fallback: 'no_image.jpeg', size: '50x50', class: 'rounded-circle mr-3' %>
+            <% end %>
+            <li>
+              <%= link_to 'ユーザー一覧', users_path, class: 'text-decoration-none mr-3'%>
+            </li>
+            <li>
+              <%= link_to '投稿一覧', posts_path, class: 'text-decoration-none mr-3'%>
+            </li>
+            <li>
+              <%= link_to '通知一覧', notifications_path, class: 'text-decoration-none mr-3'%>
+            </li>
+            <li>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-decoration-none'%>
+            </li>
+          <% else %>
+            <li class="nav-item mr-5">
+              <%= link_to '新規登録', new_user_registration_path, class: 'text-decoration-none'%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ログイン', new_user_session_path, class: 'text-decoration-none'%>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
