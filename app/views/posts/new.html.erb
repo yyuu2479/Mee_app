@@ -1,2 +1,31 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="container">
+  <div class="col-md-7 mx-auto">
+    <h3>新規投稿ページ</h3>
+    <%= form_with model: @post, local: true do |f|%>
+      <!--投稿タイトル-->
+      <div class="form-group">
+        <%= f.label :title, 'タイトル'%>
+        <%= f.text_field :title, class: 'form-control w-75', :placeholder => "投稿タイトルを入力してください" %>
+      </div>
+      <!--投稿画像-->
+      <div class="form-group">
+        <%= f.label :image, '投稿画像'%>
+        <%= f.attachment_field :image, class: 'form-control-file' %>
+      </div>
+      <!--ジャンルセレクト-->
+      <div class="form-group">
+        <%= f.label :genre_id, 'ジャンル選択', class: 'd-block' %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, class: 'form-control'%>
+      </div>
+      <!--投稿本文-->
+      <div class="form-group">
+        <%= f.label :body, '投稿本文'%>
+        <%= f.text_area :body, class: 'form-control', :placeholder => "投稿内容を入力してください", size: '30x10' %>
+      </div>
+      <!--投稿ボタン-->
+      <div>
+        <%= f.submit '投稿する', class: 'btn btn-outline-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

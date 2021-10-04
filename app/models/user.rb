@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   attachment :image
 
+  validates :first_name, presence: true, length: { maximum: 15 }
+  validates :last_name, presence: true, length: { maximum: 15 }
+  validates :nickname, presence: true, length: { maximum: 10 }
+
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
