@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_post, only:[:edit, :create, :update, :destroy]
+  before_action :correct_post, only:[:edit, :update, :destroy]
 
   def index
     @posts = Post.order(created_at: :desc)
@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_comments = PostComment.where(post_id: @post.id).order(created_at: :desc)
   end
 
   def edit
@@ -30,7 +31,7 @@ class PostsController < ApplicationController
 
   def destroy
     Post.find(params[:id]).destroy
-    flash[:notice] = "投稿を削除しました！"
+    flash[:notice] = "投稿を削除しました！！"
     redirect_to posts_path
   end
 

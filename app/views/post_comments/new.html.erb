@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-md-6 mx-auto">
+    <h3>コメント投稿ページ</h3>
+    <%= form_with model: [@post, @post_comment], local: true do |f| %>
+      <!--コメント入力フォーム-->
+      <div class="form-group">
+        <%= f.label :comment, 'コメント'%>
+        <%= f.text_area :comment, class: 'form-control' ,:placeholder => "コメントを入力してください", size: '30x5' %>
+      </div>
+      <!--投稿-->
+      <div>
+        <%= f.submit '投稿する', class: 'btn btn-outline-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>
