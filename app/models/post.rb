@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
   attachment :image
   
+  validates :title, presence: true, length: { maximum: 30 } 
+  validates :body, presence: true
+  
   belongs_to :user
   belongs_to :genre
   
