@@ -4,7 +4,11 @@
     <div class="col-md-5 mx-auto">
       <h3>投稿詳細ページ</h3>
       <div>
-        <%= attachment_image_tag @post, :image, size: '300x300' ,format: 'jpeg', fallback: 'no_image2.jpeg'%>
+        <%= attachment_image_tag @post, :image, size: '300x300', format: 'jpeg', fallback: 'no_image2.jpeg' %>
+        <!--ユーザー詳細ページへのリンク(画像)-->
+        <%= link_to user_path(@post.user.id) do %>
+          <%= attachment_image_tag @post.user, :image, size: '50x50', format: 'jpeg', fallback: 'no_image.jpeg', class: 'd-block rounded-circle' %>
+        <% end %>
         <!--投稿タイトル-->
         <p><%= @post.title %></p>
         <!--投稿本文-->
