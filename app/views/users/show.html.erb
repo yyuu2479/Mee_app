@@ -1,23 +1,30 @@
 <div class="container">
-  <div class="col-md-5 mx-auto">
-    <h3>ユーザー詳細ページ</h3>
-    <div>
-      <%= attachment_image_tag @user, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg'%>
-      <p><%= @user.nickname %></p>
-      <p>
-        <%= link_to 'フォロー一覧', user_following_path(@user), class: "btn btn-primary" %>
-      </p>
-      <p>
-        <%= link_to 'フォロワー一覧', user_follower_path(@user), class: "btn btn-primary" %>
-      </p>
-      <p>
-        <%= link_to '相互フォロー一覧', user_mutual_follow_path(@user), class: "btn btn-primary" %>
-      </p>
-      <% if current_user.id == @user.id%>
+  <div class="row">
+    <!--ユーザー詳細情報-->
+    <div class="col-md-3 mx-auto">
+      <h3>ユーザー詳細ページ</h3>
+      <div>
+        <%= attachment_image_tag @user, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg'%>
+        <p><%= @user.nickname %></p>
         <p>
-          <%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-success" %>
+          <%= link_to 'フォロー一覧', user_following_path(@user), class: "btn btn-primary" %>
         </p>
-      <% end %>
+        <p>
+          <%= link_to 'フォロワー一覧', user_follower_path(@user), class: "btn btn-primary" %>
+        </p>
+        <p>
+          <%= link_to '相互フォロー一覧', user_mutual_follow_path(@user), class: "btn btn-primary" %>
+        </p>
+        <% if current_user.id == @user.id%>
+          <p>
+            <%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-success" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <!--いいね一覧-->
+    <div class="col-md-9">
+      <%= render 'likes/index', likes: @likes, user: @user%>
     </div>
   </div>
 </div>

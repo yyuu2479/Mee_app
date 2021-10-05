@@ -1,0 +1,43 @@
+<h3>いいね一覧</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>タイトル</th>
+      <th>本文</th>
+      <th>いいね</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% likes.each do |like|%>
+    <tr>
+      <!--投稿詳細ページへのリンク(画像)-->
+      <td>
+        <%= link_to post_path(like.post.id) do %>
+          <%= attachment_image_tag like.post, :image, size: '50x50', format: 'jpeg', fallback: 'no_image.jpeg', class: 'rounded-circle' %>
+        <% end %>
+      </td>
+      <!--投稿詳細ページへのリンク(投稿タイトル)-->
+      <td>
+        <%= link_to like.post.title, post_path(like.post.id), class: 'text-decoration-none text-truncate'  %>
+      </td>
+      <!--投稿詳細ページへのリンク(投稿本文)-->
+      <td>
+        <%= link_to like.post.body, post_path(like.post.id), class: 'text-decoration-none text-truncate'  %>
+      </td>
+      <td>
+        <!--いいねボタン-->
+        <% if like.post.liked_by?(user) %>
+          <%= link_to post_likes_path(like.post.id), method: :delete do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        <% else %>
+          <%= link_to post_likes_path(like.post.id), method: :post do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
