@@ -15,10 +15,18 @@
         <p>
           <%= link_to '相互フォロー一覧', user_mutual_follow_path(@user), class: "btn btn-primary" %>
         </p>
-        <% if current_user.id == @user.id%>
+        <% if current_user == @user %>
+        <!--編集ボタン-->
           <p>
             <%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-success" %>
           </p>
+        <% else %>
+        <!--フォローボタン-->
+          <% if current_user.following_user?(@user) %>
+            <%= link_to 'フォロー解除', user_relationship_path(@user), method: :delete, class: 'btn btn-info'%>
+          <% else %>
+            <%= link_to 'フォローする', user_relationships_path(@user), method: :post, class: 'btn btn-outline-info'%>
+          <% end %>
         <% end %>
       </div>
     </div>

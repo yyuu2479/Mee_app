@@ -1,1 +1,16 @@
-<h1>フォロワー一覧</h1>
+<div class="container">
+  <h3>フォロワー一覧</h3>
+  <div class="row">
+    <% @followers.each do |follower|%>
+      <div class="col-md-3 text-center">
+        <!--ユーザー詳細ページへのリンク-->
+        <%= link_to user_path(follower), class: 'text-decoration-none' do %>
+          <!--プロフ画像-->
+          <%= attachment_image_tag follower, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg' %>
+          <!--ユーザー名(ニックネーム)-->
+          <p><%= follower.nickname %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
