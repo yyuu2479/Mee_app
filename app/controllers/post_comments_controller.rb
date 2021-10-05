@@ -1,4 +1,5 @@
 class PostCommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :correct_post_comment, only:[:edit, :destroy, :update]
 
   def new
