@@ -1,0 +1,13 @@
+<div class="container">
+  <h3><%= @another_entry.user.nickname %>さんとのチャットルーム</h3>
+  <div class="line-bc col-md-12">
+    <%= render 'messages/message', messages: @messages %>
+  </div>
+  <div class="new-chat-message form-group">
+    <%= form_with model: @message, lodal: true do |f| %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.text_field :body, :placeholder => "Enterで送信", class: 'form-control' %>
+      <% f.submit %>
+    <% end %>
+  </div>
+</div>
