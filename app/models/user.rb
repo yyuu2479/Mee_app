@@ -68,7 +68,7 @@ class User < ApplicationRecord
     end
     notification.save if notification.valid?
   end
-
+  # 検索メゾット(User)
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(nickname: content).order(created_at: :desc)

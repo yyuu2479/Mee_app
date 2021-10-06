@@ -1,44 +1,46 @@
-<h2>Sign up</h2>
-
-<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <!--名字-->
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "first_name", :placeholder => "山田"  %>
+<div class="container">
+  <div class="col-md-5 mx-auto">
+    <h3>Sign up</h3>
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <!--名字-->
+      <div class="field form-group">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "first_name", :placeholder => "山田", class: 'form-control'  %>
+      </div>
+      <!--名前-->
+      <div class="field form-group">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "last_name", :placeholder => "太郎", class: 'form-control' %>
+      </div>
+      <!--ニックネーム-->
+      <div class="field form-group">
+        <%= f.label :nickname %><br />
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", :placeholder => "yamadatarou", class: 'form-control' %>
+      </div>
+      <!--メールアドレス-->
+      <div class="field form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exsample.com", class: 'form-control' %>
+      </div>
+      <!--パスワード-->
+      <div class="field form-group">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+      <!--確認パスワード-->
+      <div class="field form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+      <!--新規登録ボタン-->
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'btn btn-success' %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
   </div>
-  <!--名前-->
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "last_name", :placeholder => "太郎" %>
-  </div>
-  <!--ニックネーム-->
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", :placeholder => "yamadatarou" %>
-  </div>
-  <!--メールアドレス-->
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exsample.com" %>
-  </div>
-  <!--パスワード-->
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-  <!--確認パスワード-->
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <!--新規登録ボタン-->
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

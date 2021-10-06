@@ -57,7 +57,7 @@ class Post < ApplicationRecord
     
     notification.save if notification.valid?
   end
-  
+  # 検索メゾット（Post
   def self.search_for(content, method)
     if method == 'perfect'
       Post.where(title: content).order(created_at: :desc)

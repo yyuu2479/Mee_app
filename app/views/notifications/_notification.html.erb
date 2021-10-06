@@ -24,6 +24,11 @@
           <%= link_to notification.post.user.nickname, user_path(notification.visitor.id), class: 'text-decoration-none' %>
         </p>
       <% end %>
+      <!--投稿されたコメント表示-->
+      <div class="opacity">
+        <%= notification.post_comment.comment %>
+      </div>
     <% end %>
+    <p class="text-right"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
   </td>
 </tr>

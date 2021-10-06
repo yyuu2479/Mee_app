@@ -9,15 +9,7 @@
         <% end %>
         <div class="text-left">
           <!--いいねボタン-->
-          <% if post.liked_by?(current_user) %>
-            <%= link_to post_likes_path(post.id), method: :delete do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-          <% else %>
-            <%= link_to post_likes_path(post.id), method: :post do %>
-              <i class="far fa-star"></i>
-            <% end %>
-          <% end %>
+          <%= render 'likes/like_btn', post: post, user: current_user%>
           <!--投稿詳細ページリンク-->
           <p><%= link_to post.title, post_path(post.id), class: 'text-decoration-none'%></p>
           <!--投稿ジャンル-->
