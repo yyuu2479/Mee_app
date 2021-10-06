@@ -24,6 +24,9 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:user_id])
     # フォロー作成メゾット(follow(@user))
     current_user.follow(@user)
+    
+    # フォローしたらnotificationsテーブル(通知モデル)に保存
+    @user.create_notification_follow(current_user)
     redirect_to user_path(@user)
   end
   
