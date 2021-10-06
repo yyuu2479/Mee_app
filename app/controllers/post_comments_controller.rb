@@ -17,6 +17,11 @@ class PostCommentsController < ApplicationController
     @post_comment = PostComment.new(post_comment_params)
     if @post_comment.save
       flash[:notice] = "投稿が完了しました！！"
+      
+      # コメントしたらnotificationsテーブル(通知モデル)に保存
+      @notification_post = @post_comment.post
+      @notification_post.create_notification_comment(current_user, @post_comment.id)
+      
       redirect_to post_path(@post)
     else
       @post_comment = PostComment.new

@@ -1,0 +1,29 @@
+<tr>
+  <td>
+    <p class="d-inline-block">
+      <%= link_to notification.visitor.nickname, user_path(notification.visitor.id), class: 'text-decoration-none' %>さんが
+    </p>
+    <!--notificationsテーブル(通知モデル)のactionカラムの値で処理を分岐-->
+    <% if notification.action == "follow" %>
+      <!--フォロー通知-->
+      <p class="d-inline-block">あなたをフォローしました！</p>
+    <% elsif notification.action == "like"%>
+      <!--いいね通知-->
+      <p class="d-inline-block">
+        <%= link_to 'あなたの投稿', post_path(notification.post.id), class: 'text-decoration-none' %>にいいねしました！
+      </p>
+    <% elsif notification.action == "post_comment" %>
+      <% if notification.post.user.id == notification.visited.id%>
+        <!--コメント通知(自分の投稿にコメントが付いた時の通知)-->
+        <p class="d-inline-block">
+          <%= link_to 'あなたの投稿', post_path(notification.post.id), class: 'text-decoration-none' %>にコメントしました！
+        </p>
+      <% else %>
+        <!--コメント通知(自分がコメントした投稿に新しく誰かがコメントを送信した場合)-->
+        <p class="d-inline-block">
+          <%= link_to notification.post.user.nickname, user_path(notification.visitor.id), class: 'text-decoration-none' %>
+        </p>
+      <% end %>
+    <% end %>
+  </td>
+</tr>
