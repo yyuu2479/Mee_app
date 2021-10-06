@@ -26,6 +26,12 @@
             <li>
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-decoration-none'%>
             </li>
+            <%= form_with url: searchs_path, method: :get, local: true do |f| %>
+              <%= f.text_field :content %>
+              <%= f.select :model, options_for_select({'ユーザー'=>'user', '投稿'=>'post'})%>
+              <%= f.select :method, options_for_select({'完全一致'=>'perfect', '前方一致'=>'forward', '後方一致'=>'backward', '部分一致'=>'partial'})%>
+              <%= f.submit '検索'%>
+            <% end %>
           <% else %>
             <li class="nav-item mr-5">
               <%= link_to '新規登録', new_user_registration_path, class: 'text-decoration-none'%>

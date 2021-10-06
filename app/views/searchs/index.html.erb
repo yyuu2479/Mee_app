@@ -1,2 +1,33 @@
-<h1>Searchs#index</h1>
-<p>Find me in app/views/searchs/index.html.erb</p>
+<div class="container">
+<h3>"<%= @content %>"の検索結果</h3>
+<div class="row">
+<% if @model == 'user'%>
+  <% @result_users.each do |user| %>
+    <div class="col-md-3">
+      <%= link_to user_path(user.id), class: 'text-decoration-none' do %>
+        <%= attachment_image_tag user, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg' %>
+        <p class="text-left"><%= user.nickname %></p>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <% @result_posts.each do |post| %>
+  <div class="col-md-4 text-center">
+    <%= link_to post_path(post.id) do%>
+      <%= attachment_image_tag post, :image, size: '300x300' ,format: 'jpeg', fallback: 'no_image2.jpeg'%>
+    <% end %>
+    <div class="text-left">
+      <!--いいねボタン-->
+      <%= render 'likes/like_btn', post: post %>
+      <!--投稿詳細ページリンク-->
+      <p><%= link_to post.title, post_path(post.id), class: 'text-decoration-none'%></p>
+      <!--投稿ジャンル-->
+      <p class="text-truncate"><%= post.genre.name %></p>
+      <!--投稿本文-->
+      <p class="text-truncate"><%= post.body %></p>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+</div>
+</div>
