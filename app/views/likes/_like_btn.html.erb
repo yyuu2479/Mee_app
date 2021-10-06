@@ -1,0 +1,10 @@
+<!--いいねボタン-->
+<% if post.liked_by?(user) %>
+  <%= link_to post_likes_path(post.id), method: :delete do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+<% else %>
+  <%= link_to post_likes_path(post.id), method: :post do %>
+    <i class="far fa-star"></i>
+  <% end %>
+<% end %>

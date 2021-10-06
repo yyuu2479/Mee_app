@@ -2,11 +2,9 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
     <!--サイトロゴ-->
-      <div>
         <%= link_to root_path do %>
-          <%= image_tag 'logo.png', size: '80x80'%>
+          <%= image_tag 'logo.png', size: '100x100'%>
         <% end%>
-      </div>
       <!--ナビゲーションリンク-->
       <div>
         <ul class="navbar-nav">
@@ -20,9 +18,12 @@
             <li>
               <%= link_to '投稿一覧', posts_path, class: 'text-decoration-none mr-3'%>
             </li>
-            <li>
-              <%= link_to '通知一覧', notifications_path, class: 'text-decoration-none mr-3'%>
-            </li>
+            <%= link_to  notifications_path, class: 'text-decoration-none mr-3' do %>
+              <% if unchecked_notifications.any? %>
+                <i class="fas fa-circle n-circle"></i>
+              <% end %>
+                <li>通知一覧</li>
+            <% end %>
             <li>
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-decoration-none'%>
             </li>
@@ -35,6 +36,17 @@
             </li>
           <% end %>
         </ul>
+        <% if user_signed_in? %>
+          <div class="form-group mt-1">
+            <%= form_with url: searchs_path, method: :get, local: true do |f| %>
+              <%= f.text_field :content, :placeholder => "ユーザー名、投稿タイトルを入力して下さい", class: 'form-control form-control-sm w-100' %>
+              <%= f.select :model, options_for_select({'ユーザー名'=>'user', '投稿タイトル'=>'post'}), class: 'form-control' %>
+              <%= f.select :method, options_for_select({'完全一致'=>'perfect', '前方一致'=>'forward', '後方一致'=>'backward', '部分一致'=>'partial'}),
+              class: 'form-control' %>
+              <%= f.submit '検索', class: 'btn btn-secondary btn-sm'%>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </nav>

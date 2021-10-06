@@ -1,2 +1,16 @@
-<h1>Searchs#index</h1>
-<p>Find me in app/views/searchs/index.html.erb</p>
+<div class="container">
+  <h3>
+    <% if @content.blank? %>
+      検索内容を入力して下さい！
+    <% else %>
+      "<%= @content %>"の検索結果
+    <% end %>
+  </h3>
+    <div class="row">
+      <% if @model == 'user'%>
+        <%= render 'searchs/search_user', content: @content, result_users: @result_users %>
+      <% elsif @model == 'post' %>
+        <%= render 'searchs/search_post', content: @content, result_posts: @result_posts %>
+    <% end %>
+  </div>
+</div>

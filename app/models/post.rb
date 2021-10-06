@@ -14,8 +14,7 @@ class Post < ApplicationRecord
   def liked_by?(user)
     self.likes.where(user_id: user.id).exists?
   end
-
-
+  
   # いいね通知作成メゾット
   def create_notification_like(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ?", current_user.id, user_id, id, 'like'])
@@ -33,7 +32,6 @@ class Post < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-
 
   # コメント通知メゾット
   def create_notification_comment(current_user, post_comment_id)
@@ -58,5 +56,17 @@ class Post < ApplicationRecord
     notification.checked = true if notification.visitor_id == notification.visited_id
     
     notification.save if notification.valid?
+  end
+  # 検索メゾット（Post
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Post.where(title: content).order(created_at: :desc)
+    elsif method == 'forward'
+      Post.where('title LIKE ?', content + '%').order(created_at: :desc)
+    elsif method == 'backward'
+      Post.where('title LIKE ?', '%' + content).order(created_at: :desc)
+    else
+      Post.where('title LIKE ?', '%' + content + '%').order(created_at: :desc)
+    end
   end
 end

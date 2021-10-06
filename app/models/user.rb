@@ -54,11 +54,10 @@ class User < ApplicationRecord
   def mutual_follow
     following_user & follower_user
   end
-
   # フォロー通知作成メゾット
   def create_notification_follow(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
-
+    # インスタンス変数tempに値と言えるものがなければレコード作成
     if temp.blank?
       notification = current_user.visitors.new(
         visited_id: id,
@@ -67,7 +66,18 @@ class User < ApplicationRecord
         action: 'follow'
         )
     end
-
     notification.save if notification.valid?
+  end
+  # 検索メゾット(User)
+  def self.search_for(content, method)
+    if method == 'perfect'
+      User.where(nickname: content).order(created_at: :desc)
+    elsif method == 'forward'
+      User.where('nickname LIKE ?', content + '%').order(created_at: :desc)
+    elsif method == 'backward'
+      User.where('nickname LIKE ?', '%' + content).order(created_at: :desc)
+    else
+      User.where('nickname LIKE ?', '%' + content + '%').order(created_at: :desc)
+    end
   end
 end

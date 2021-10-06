@@ -14,7 +14,7 @@
       <!--投稿詳細ページへのリンク(画像)-->
       <td>
         <%= link_to post_path(like.post.id) do %>
-          <%= attachment_image_tag like.post, :image, size: '50x50', format: 'jpeg', fallback: 'no_image.jpeg', class: 'rounded-circle' %>
+          <%= attachment_image_tag like.post, :image, size: '50x50', format: 'jpeg', fallback: 'no_image2.jpeg', class: 'rounded-circle' %>
         <% end %>
       </td>
       <!--投稿詳細ページへのリンク(投稿タイトル)-->
@@ -27,15 +27,7 @@
       </td>
       <td>
         <!--いいねボタン-->
-        <% if like.post.liked_by?(user) %>
-          <%= link_to post_likes_path(like.post.id), method: :delete do %>
-            <i class="fas fa-star"></i>
-          <% end %>
-        <% else %>
-          <%= link_to post_likes_path(like.post.id), method: :post do %>
-            <i class="far fa-star"></i>
-          <% end %>
-        <% end %>
+        <%= render 'likes/like_btn', post: like.post, user: user%>
       </td>
     </tr>
     <% end %>

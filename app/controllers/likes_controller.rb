@@ -3,7 +3,6 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     Like.create(user_id: current_user.id, post_id: @post.id)
     redirect_to posts_path
-    
     # いいねしたらnotificationsテーブル(通知モデル)に保存
     @post.create_notification_like(current_user)
   end
