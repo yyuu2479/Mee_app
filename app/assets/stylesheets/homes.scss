@@ -1,3 +1,70 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 一番最初に出る画像関連のCSS
+.top-image {
+  width: 100%;
+  height: 550px;
+  background-image: url('ELL75_yousyohondana20120620_TP_V.jpg');
+  background-size: cover;
+  .text {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 550px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+// 使い方の部分
+.step {
+  height: 550px;
+  .row{
+    justify-content: center;
+  }
+  .step-image1 {
+    height: 280px;
+    width: 310px;
+    margin-right: 80px;
+    background-image: url('10223_color.png');
+    background-size: cover;
+  }
+  .step-image2 {
+    height: 280px;
+    width: 310px;
+    margin-left: 80px;
+    background-image: url('11813_color.png');
+    background-size: cover;
+  }
+}
+// 特徴解説部分
+.row {
+  align-items: center;
+  justify-content: center;
+  .feature-image1 {
+    height: 180px;
+    width: 310px;
+    background-image: url('11369_color.png');
+    background-size: cover;
+  }
+  .feature-image2 {
+    height: 180px;
+    width: 330px;
+    background-image: url('11383_color.png');
+    background-size: cover;
+  }
+  .feature-image3 {
+    height: 180px;
+    width: 310px;
+    background-image: url('7139_color.png');
+    background-size: cover;
+  }
+}
+// 新規登録
+.new-register-image1 {
+  height: 500px;
+  width: 500px;
+  background-image: url('logo.png');
+  background-size: cover;
+}
