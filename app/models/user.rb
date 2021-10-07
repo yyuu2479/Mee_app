@@ -80,4 +80,14 @@ class User < ApplicationRecord
       User.where('nickname LIKE ?', '%' + content + '%').order(created_at: :desc)
     end
   end
+  # ソートメゾット
+  def self.sort_for(sort)
+    if sort == 'new'
+      User.order(created_at: :desc)
+    elsif sort == 'old'
+      User.order(created_at: :asc)
+    else
+      User.order(created_at: :desc)
+    end
+  end
 end

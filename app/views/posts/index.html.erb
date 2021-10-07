@@ -1,6 +1,10 @@
 <div class="container">
   <h3>投稿一覧</h3>
   <p><%= link_to '新規投稿ページへ', new_post_path %></p>
+  <%= form_with url: posts_path, method: :get, local: true do |f| %>
+    <%= f.select :sort, options_for_select({'投稿新しい順'=>'new', '投稿が古い順' =>'old'}) %>
+    <%= f.submit '検索' %>
+  <% end %>
   <div class="row">
     <% @posts.each do |post|%>
       <div class="col-md-4 text-center">
@@ -9,13 +13,16 @@
         <% end %>
         <div class="text-left">
           <!--いいねボタン-->
-          <%= render 'likes/like_btn', post: post, user: current_user%>
+          <div class="text-right">
+            <%= render 'likes/like_btn', post: post, user: current_user%>
+          </div>
           <!--投稿詳細ページリンク-->
           <p><%= link_to post.title, post_path(post.id), class: 'text-decoration-none'%></p>
           <!--投稿ジャンル-->
           <p class="text-truncate"><%= post.genre.name %></p>
           <!--投稿本文-->
           <p class="text-truncate"><%= post.body %></p>
+          <p class="text-right"><%= time_ago_in_words(post.created_at).upcase %>前</p>
         </div>
       </div>
     <% end %>

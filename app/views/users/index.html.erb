@@ -1,5 +1,9 @@
 <div class="container">
   <h3>ユーザー一覧</h3>
+  <%= form_with url: users_path, method: :get, local: true do |f| %>
+    <%= f.select :sort, options_for_select({'登録日時が新しい順'=>'new', '登録日時が古い順'=>'old'}) %>
+    <%= f.submit '検索' %>
+  <% end %>
   <div class="row">
   <% @users.each do |user| %>
     <div class="col-md-3 text-center">
@@ -7,6 +11,7 @@
         <%= attachment_image_tag user, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg' %>
         <p class="text-left"><%= user.nickname %></p>
       <% end %>
+      <p class="text-right"><%= time_ago_in_words(user.created_at).upcase %>前</p>
     </div>
   <% end %>
   </div>
