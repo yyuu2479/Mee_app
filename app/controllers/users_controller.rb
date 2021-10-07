@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only:[:edit, :update]
 
   def index
-    @users = User.order(created_at: :desc)
+    sort = params[:sort]
+    @users = User.sort_for(sort)
   end
 
   def show

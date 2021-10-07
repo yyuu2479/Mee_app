@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :correct_post, only:[:edit, :update, :destroy]
 
   def index
-    @posts = Post.order(created_at: :desc)
+    sort = params[:sort]
+    @posts = Post.sort_for(sort)
   end
 
   def show
