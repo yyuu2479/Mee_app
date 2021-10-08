@@ -17,9 +17,17 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.nav-lists {
+  align-items: center;
+}
+
 .n-circle {
   position: absolute;
   top: 19px;
   right: 16rem;
   color: #ffa500;
+}
+
+.mee-sign_up, .mee-sign_in, .mee-password-forget {
+  border-left: 5px solid #007bbb;
 }

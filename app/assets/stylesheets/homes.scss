@@ -20,7 +20,8 @@
 // 使い方の部分
 .step {
   height: 550px;
-  .row{
+  .step-about{
+    display: flex;
     justify-content: center;
   }
   .step-image1 {
@@ -39,9 +40,10 @@
   }
 }
 // 特徴解説部分
-.row {
-  align-items: center;
+.feature-about {
+  display: flex;
   justify-content: center;
+  align-items: center;
   .feature-image1 {
     height: 180px;
     width: 310px;
@@ -62,9 +64,14 @@
   }
 }
 // 新規登録
-.new-register-image1 {
-  height: 500px;
-  width: 500px;
-  background-image: url('logo.png');
-  background-size: cover;
+.new-register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .new-register-image1 {
+    height: 500px;
+    width: 500px;
+    background-image: url('logo.png');
+    background-size: cover;
+  }
 }

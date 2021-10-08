@@ -1,45 +1,55 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-    <!--サイトロゴ-->
-        <%= link_to root_path do %>
-          <%= image_tag 'logo.png', size: '100x100'%>
-        <% end%>
+      <!--サイトロゴ-->
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png', size: '100x100'%>
+      <% end%>
+      <!--ナビゲーションメニュー-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <!--ナビゲーションリンク-->
-      <div>
-        <ul class="navbar-nav">
-          <% if user_signed_in? %>
-            <%= link_to user_path(current_user) do %>
-              <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: 'no_image.jpeg', size: '50x50', class: 'rounded-circle mr-3' %>
-            <% end %>
-            <li>
-              <%= link_to 'ユーザー一覧', users_path, class: 'text-decoration-none mr-3'%>
-            </li>
-            <li>
-              <%= link_to '投稿一覧', posts_path, class: 'text-decoration-none mr-3'%>
-            </li>
-            <%= link_to  notifications_path, class: 'text-decoration-none mr-3' do %>
-              <% if unchecked_notifications.any? %>
-                <i class="fas fa-circle n-circle"></i>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="ml-auto">
+          <ul class="navbar-nav nav-lists">
+            <% if user_signed_in? %>
+              <!--ログイン後ヘッダー-->
+              <%= link_to user_path(current_user), class: 'nav-link'  do %>
+                <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: 'no_image.jpeg', size: '50x50', class: 'rounded-circle' %>
               <% end %>
-                <li>通知一覧</li>
+              <li class="nav-item">
+                <%= link_to 'ユーザー一覧', users_path, class: 'header-users nav-link text-decoration-none px-2'%>
+              </li>
+              <li class="nav-item">
+                <%= link_to '投稿一覧', posts_path, class: 'header-posts nav-link text-decoration-none px-2'%>
+              </li>
+              <!--通知あったら円が右下にあるようにif文で条件分岐させてある-->
+              <%= link_to  notifications_path, class: 'nav-list nav-link text-decoration-none' do %>
+                <% if unchecked_notifications.any? %>
+                  <i class="fas fa-circle n-circle"></i>
+                <% end %>
+                  <li class="header-notifications nav-item px-2">通知一覧</li>
+              <% end %>
+              <li class="nav-item">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'header-sign_out nav-link text-decoration-none px-2'%>
+              </li>
+            <% else %>
+              <!--ログイン前ヘッダー-->
+              <li class="nav-item">
+                <%= link_to '新規登録', new_user_registration_path, class: 'header-new nav-link text-decoration-none px-3'%>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'ログイン', new_user_session_path, class: 'header-login nav-link text-decoration-none px-3'%>
+              </li>
             <% end %>
-            <li>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-decoration-none'%>
-            </li>
-          <% else %>
-            <li class="nav-item mr-5">
-              <%= link_to '新規登録', new_user_registration_path, class: 'text-decoration-none'%>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'ログイン', new_user_session_path, class: 'text-decoration-none'%>
-            </li>
-          <% end %>
-        </ul>
+          </ul>
+        </div>
+        <!--検索フォーム-->
         <% if user_signed_in? %>
           <div class="form-group mt-1">
             <%= form_with url: searchs_path, method: :get, local: true do |f| %>
-              <%= f.text_field :content, :placeholder => "ユーザー名、投稿タイトルを入力して下さい", class: 'form-control form-control-sm w-100' %>
+              <%= f.text_field :content, :placeholder => "ユーザー名、投稿タイトルを入力", class: 'form-control form-control-sm w-100' %>
               <%= f.select :model, options_for_select({'ユーザー名'=>'user', '投稿タイトル'=>'post'}), class: 'form-control' %>
               <%= f.select :method, options_for_select({'完全一致'=>'perfect', '前方一致'=>'forward', '後方一致'=>'backward', '部分一致'=>'partial'}),
               class: 'form-control' %>

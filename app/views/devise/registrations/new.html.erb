@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="col-md-5 mx-auto">
-    <h3>Sign up</h3>
+<div class="container my-5">
+  <div class="mee-sign_up col-md-6 mx-auto shadow p-5">
+    <h3>Meeに新規登録する</h3>
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <!--名字-->
