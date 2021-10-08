@@ -1,9 +1,9 @@
-<div class="col-md-7">
-  <%= link_to 'コメントを投稿する', new_post_post_comment_path(post.id) %>
-  <table class="table table-striped">
-    <thead>
+<div class="col-md-8">
+  <%= link_to 'コメントを投稿する', new_post_post_comment_path(post.id), class: "btn btn-light mb-1" %>
+  <table class="table">
+    <thead class="thead-dark">
       <tr>
-        <th></th>
+        <th>ユーザー</th>
         <th>コメント</th>
         <th></th>
       </tr>

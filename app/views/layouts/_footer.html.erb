@@ -1,14 +1,10 @@
-<footer class="bg-light">
-  <p class="text-center">© Mee. All rights reserved.</p>
+<footer class="bg-dark">
+  <p class="text-center text-white">© Mee. All rights reserved.</p>
   <div class="container">
-    <p>
-      <%= link_to '会社概要', root_path, class: 'text-decoration-none'%>
-    </p>
-    <p>
-      <%= link_to '利用規約', root_path, class: 'text-decoration-none' %>
-    </p>
-    <p>
-      <%= link_to 'お問い合わせ', root_path, class: 'text-decoration-none' %>
-    </p>
+    <div class="footer-item">
+      <%= link_to '会社概要', root_path, class: 'text-decoration-none text-white pb-3'%>
+      <%= link_to '利用規約', root_path, class: 'text-decoration-none text-white pb-3' %>
+      <%= link_to 'お問い合わせ', root_path, class: 'text-decoration-none text-white pb-3' %>
+    </div>
   </div>
 </footer>

@@ -64,9 +64,9 @@ class User < ApplicationRecord
         post_id: 0,
         post_comment_id: 0,
         action: 'follow'
-        )
+      )
+      notification.save if notification.valid?
     end
-    notification.save if notification.valid?
   end
   # 検索メゾット(User)
   def self.search_for(content, method)

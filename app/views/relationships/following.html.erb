@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-5 relationships">
   <h3>フォロー一覧</h3>
   <div class="row">
     <% @followings.each do |following|%>
@@ -8,7 +8,7 @@
           <!--プロフ画像-->
           <%= attachment_image_tag following, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg'%>
           <!--ユーザー名(ニックネーム)-->
-          <p><%= following.nickname %></p>
+          <p class="text-dark"><%= following.nickname %></p>
         <% end %>
       </div>
     <% end %>

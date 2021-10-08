@@ -1,21 +1,18 @@
-<% if content.blank? %>
-  <% result_posts.each do |post| %>
-    <div class="col-md-4 text-center">
-        <%= link_to post_path(post.id) do%>
-          <%= attachment_image_tag post, :image, size: '300x300' ,format: 'jpeg', fallback: 'no_image2.jpeg'%>
-        <% end %>
-      <div class="text-left">
-        <!--いいねボタン-->
-        <%= render 'likes/like_btn', post: post, user: current_user %>
-        <!--投稿詳細ページリンク-->
-        <p><%= link_to post.title, post_path(post.id), class: 'text-decoration-none'%></p>
-        <!--投稿ジャンル-->
-        <p class="text-truncate"><%= post.genre.name %></p>
-        <!--投稿本文-->
-        <p class="text-truncate"><%= post.body %></p>
-      </div>
+<!--result_postsの中身が空かどうかで処理分岐-->
+<% result_posts.each do |post| %>
+  <div class="col-md-4 text-center">
+      <%= link_to post_path(post.id) do%>
+        <%= attachment_image_tag post, :image, size: '300x300' ,format: 'jpeg', fallback: 'no_image2.jpeg'%>
+      <% end %>
+    <div class="text-left">
+      <!--いいねボタン-->
+      <%= render 'likes/like_btn', post: post, user: current_user %>
+      <!--投稿詳細ページリンク-->
+      <p><%= link_to post.title, post_path(post.id), class: 'text-decoration-none'%></p>
+      <!--投稿ジャンル-->
+      <p class="text-truncate"><%= post.genre.name %></p>
+      <!--投稿本文-->
+      <p class="text-truncate"><%= post.body %></p>
     </div>
-  <% end %>
-<% else %>
-  <p>検索内容にヒットしませんでした！ もう一度入力して下さい！</p>
+  </div>
 <% end %>

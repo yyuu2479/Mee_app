@@ -1,19 +1,28 @@
-<div class="container">
+<div class="container my-5">
   <div class="row">
     <!--投稿詳細内容-->
-    <div class="col-md-5">
+    <div class="col-md-4">
       <h3>投稿詳細ページ</h3>
-      <div>
-        <%= attachment_image_tag @post, :image, size: '300x300' ,format: 'jpeg', fallback: 'no_image2.jpeg'%>
+      <div class="card border-dark">
+        <%= attachment_image_tag @post, :image, size: '320x320' ,format: 'jpeg', fallback: 'no_image2.jpeg', class: 'card-img-top'%>
         <!--投稿タイトル-->
-        <p><%= @post.title %></p>
+        <h5 class="card-header"><%= @post.title %></h5>
         <!--投稿本文-->
-        <p><%= @post.body %></p>
-        <!--投稿作成日時-->
-        <p><%= @post.created_at.to_s(:datetime_jp) %></p>
+        <div class="card-body">
+          <!--いいねボタン-->
+          <div class="text-right">
+            <%= render 'likes/like_btn', post: @post, user: current_user %>
+          </div>
+          <!--投稿ジャンル-->
+          <p class="text-truncate card-subtitle mb-2 text-muted"><%= @post.genre.name %></p>
+          <!--投稿テキスト-->
+          <p class="card-text text-break"><%= @post.body %></p>
+          <!--投稿作成日時-->
+          <p class="card-text text-right"><%= @post.created_at.to_s(:datetime_jp) %></p>
+        </div>
         <!--投稿編集ボタン-->
         <% if current_user.id == @post.user.id%>
-          <div>
+          <div class="text-center card-footer">
             <%= link_to '編集する', edit_post_path(@post), class: 'btn btn-outline-success' %>
             <%= link_to '削除する', post_path(@post), method: :delete, class: 'btn btn-outline-danger', data:{confirm: "本当に削除しますか？" }%>
           </div>

@@ -1,31 +1,38 @@
-<div class="container">
+<div class="container my-5">
   <div class="row">
     <!--ユーザー詳細情報-->
     <div class="col-md-3 mx-auto">
       <h3>ユーザー詳細ページ</h3>
-      <div>
-        <%= attachment_image_tag @user, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg'%>
-        <p><%= @user.nickname %></p>
-        <p><%= link_to 'フォロー一覧', user_following_path(@user), class: "btn btn-primary" %></p>
-        <p><%= link_to 'フォロワー一覧', user_follower_path(@user), class: "btn btn-primary" %></p>
-        <p><%= link_to '相互フォロー一覧', user_mutual_follow_path(@user), class: "btn btn-primary" %></p>
-        <% if current_user == @user %>
-        <!--編集ボタン-->
-          <p><%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-success" %> </p>
-        <% else %>
-        <!--フォローボタン-->
-          <% if current_user.following_user?(@user) %>
-            <!--フォロー解除ボタン-->
-            <p><%= link_to 'フォロー解除', user_relationship_path(@user), method: :delete, class: 'btn btn-info'%></p>
-            <!--チャットルームボタン-->
-            <% if @user.following_user?(current_user)%>
-              <%= render 'rooms/chat_room', is_room: @is_room, room_id: @room_id, room: @room, entry: @entry, user: @user%>
-            <% end %>
+      <div class="card border-dark mt-3">
+        <%= attachment_image_tag @user, :image, size: '150x250', format: 'jpeg', fallback: 'no_image.jpeg', class: 'card-img-top' %>
+        <!--ヘッダー部分-->
+        <p class="card-header"><%= @user.nickname %></p>
+        <!--メイン部分-->
+        <div class="card-body">
+          <p class="card-text"><%= link_to 'フォロー一覧', user_following_path(@user), class: "btn btn-primary" %></p>
+          <p class="card-text"><%= link_to 'フォロワー一覧', user_follower_path(@user), class: "btn btn-primary" %></p>
+          <p class="card-text"><%= link_to '相互フォロー一覧', user_mutual_follow_path(@user), class: "btn btn-primary" %></p>
+        </div>
+        <!--フッダー部分-->
+        <div class="card-footer text-center">
+          <% if current_user == @user %>
+            <!--編集ボタン-->
+              <%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-success" %>
           <% else %>
-            <!--フォロー作成ボタン-->
-            <p><%= link_to 'フォローする', user_relationships_path(@user), method: :post, class: 'btn btn-outline-info'%></p>
+          <!--フォローボタン-->
+            <% if current_user.following_user?(@user) %>
+              <!--フォロー解除ボタン-->
+              <%= link_to 'フォロー解除', user_relationship_path(@user), method: :delete, class: 'btn btn-info mb-1'%>
+                <!--チャットルームボタン-->
+              <% if @user.following_user?(current_user)%>
+                <%= render 'rooms/chat_room', is_room: @is_room, room_id: @room_id, room: @room, entry: @entry, user: @user%>
+              <% end %>
+            <% else %>
+              <!--フォロー作成ボタン-->
+              <%= link_to 'フォローする', user_relationships_path(@user), method: :post, class: 'btn btn-outline-info mb-1'%>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
     <!--いいね一覧-->

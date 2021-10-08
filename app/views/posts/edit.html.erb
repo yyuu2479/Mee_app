@@ -1,22 +1,22 @@
-<div class="container">
-  <div class="col-md-5 mx-auto">
+<div class="container my-5">
+  <div class="mee-post col-md-6 mx-auto shadow p-5">
     <h3>投稿編集ページ</h3>
     <!--編集フォーム-->
     <%= form_with model: @post, local: true do |f| %>
       <!--タイトル-->
       <div class="form-group">
         <%= f.label :title, '投稿タイトル' %>
-        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.text_field :title, class: 'form-control w-75' %>
       </div>
       <!--投稿画像-->
       <div class="form-group">
         <%= f.label :image, '投稿画像' %>
-        <%= f.attachment_field :image, class: 'form-control-file'%>
+        <%= f.attachment_field :image, class: 'form-control-file' %>
       </div>
       <!--本文-->
       <div class="form-group">
         <%= f.label :body, '投稿本文' %>
-        <%= f.text_field :body, class: 'form-control'%>
+        <%= f.text_area :body, class: 'form-control', size: '30x10' %>
       </div>
       <!--更新ボタン-->
       <div>
