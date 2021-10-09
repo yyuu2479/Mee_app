@@ -1,6 +1,7 @@
 <div class="container my-5">
   <div class="mee-post col-md-6 mx-auto shadow p-5">
     <h3>コメント投稿ページ</h3>
+    <%= render 'layouts/errors', model: @post_comment %>
     <%= form_with model: [@post, @post_comment], local: true do |f| %>
       <!--コメント入力フォーム-->
       <div class="form-group">

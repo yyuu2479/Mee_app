@@ -3,6 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .notifications {
   height: 800px;
+  .who-nickname {
+    padding: 2px;
+    background-color: #00ffff;
+    &:hover {
+      background-color: #1ddddd;
+    }
+  }
+  .you-post {
+    padding: 2px;
+    background-color: #ffff00;
+     &:hover {
+      background-color: #ebeb10;
+    }
+  }
 }
 
 .opacity {

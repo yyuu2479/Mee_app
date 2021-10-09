@@ -21,11 +21,15 @@
   align-items: center;
 }
 
+.header-notification {
+  position: relative;
+}
+
 // 通知があった時に出る円（右下に出る）のCSS
 .n-circle {
   position: absolute;
-  top: 19px;
-  right: 16rem;
+  left: 70px;
+  top: 18px;
   color: #ffa500;
 }
 

@@ -18,13 +18,15 @@
             <% end %>
           </td>
           <!--コメント内容-->
-          <td><%= post_comment.comment %></td>
+          <td>
+            <p class="text-break"><%= post_comment.comment %></p>
+          </td>
           <!--編集・削除ボタン-->
           <td class="text-center">
             <% if post_comment.user.id == current_user.id %>
               <%= link_to '編集', edit_post_post_comment_path(post_comment.post.id, post_comment.id), class: 'btn btn-success' %>
               <%= link_to '削除', post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete,
-              data:{confirm: "本当に削除しますか？"}, class: "btn btn-danger" %>
+              data:{confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %>
             <% end %>
           </td>
         </tr>
