@@ -4,17 +4,17 @@ class UsersController < ApplicationController
 
   def index
     sort = params[:sort]
-    @users = User.sort_for(sort)
+    @users = User.sort_for(sort).page(params[:page]).per(9)
   end
 
   def show
     @user = User.find(params[:id])
-    @likes = @user.likes
-    
+    @likes = @user.likes.page(params[:page]).per(8)
+
     @current_user_entry = Entry.where(user_id: current_user.id)
     @user_entry = Entry.where(user_id: @user.id)
     unless current_user.id == @user.id
-      @current_user_entry.each do |current| 
+      @current_user_entry.each do |current|
         @user_entry.each do |user|
           if current.room_id == user.room_id
             @is_room = true
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:nickname, :image)
   end
-  
+
   def correct_user
     user = User.find(params[:id])
     redirect_to users_path unless user.id == current_user.id

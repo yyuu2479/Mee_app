@@ -1,16 +1,17 @@
 <div class="container my-5 relationships">
-  <h3>相互フォロー一覧</h3>
+  <h3 class="font-weight-bold">相互フォロー一覧</h3>
   <div class="row">
     <% @mutual_follows.each do |mutual_follow| %>
       <div class="col-md-3 text-center">
         <!--ユーザー詳細ページへのリンク-->
         <%= link_to user_path(mutual_follow) do%>
           <!--プロフ画像-->
-          <%= attachment_image_tag mutual_follow, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg'%>
+          <%= attachment_image_tag mutual_follow, :image, size: '150x150', format: 'jpeg', fallback: 'no_image2.jpeg'%>
           <!--ユーザー名(ニックネーム)-->
           <p class="text-dark"><%= mutual_follow.nickname %></p>
         <% end %>
       </div>
     <% end %>
   </div>
+  <%= paginate @mutual_follows %>
 </div>

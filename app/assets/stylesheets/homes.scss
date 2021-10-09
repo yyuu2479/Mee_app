@@ -40,22 +40,19 @@
 }
 // 使い方の部分
 .step {
-  height: 550px;
   .step-about{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
   }
   .step-image1 {
     height: 280px;
     width: 310px;
-    margin-right: 80px;
     background-image: url('10223_color.png');
     background-size: cover;
   }
   .step-image2 {
     height: 280px;
     width: 310px;
-    margin-left: 80px;
     background-image: url('11813_color.png');
     background-size: cover;
   }
@@ -87,8 +84,8 @@
 // 新規登録
 .new-register{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-evenly;
   .new-register-image1 {
     height: 500px;
     width: 500px;

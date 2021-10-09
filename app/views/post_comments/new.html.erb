@@ -1,5 +1,5 @@
-<div class="container my-5">
-  <div class="mee-post col-md-6 mx-auto shadow p-5">
+<div class="container mt-5">
+  <div class="mee-post col-md-7 mx-auto shadow p-5">
     <h3>コメント投稿ページ</h3>
     <%= render 'layouts/errors', model: @post_comment %>
     <%= form_with model: [@post, @post_comment], local: true do |f| %>
@@ -13,5 +13,18 @@
         <%= f.submit '投稿する', class: 'btn btn-outline-success' %>
       </div>
     <% end %>
+  </div>
+  <div class="row comment-cautions mt-4">
+    <!--注意点テキスト-->
+    <div class="comment-texts mt-3 p-1">
+      <h4 class="font-weight-bold mt-4 pl-1">使用する上で…</h4>
+      <ol>
+        <li class="comment-exsample my-5">利用している方が不快に思わないコメントを送りましょう！</li>
+        <li class="comment-exsample my-5">メッセージは必ず入力しましょう！(空白だと送信されません)</li>
+        <li class="comment-exsample">利用していただいてありがとうございます！</li>
+      </ol>
+    </div>
+    <!--画像-->
+    <div class="comment-image mt-5"></div>
   </div>
 </div>

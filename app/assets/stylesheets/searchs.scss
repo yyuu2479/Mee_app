@@ -3,26 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .searchs {
-  height: 700px;
-  .search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .search-text {
     position: relative;
     top: 10rem;
-    left: 10px;
+    left: 5px;
   }
   .search-image1 {
-    height: 707px;
+    height: 700px;
     width: 500px;
     background-image: url('8463_color.png');
     background-size: cover;
   }
   .search-image2 {
-    height: 671px;
-    width: 500px;
+    height: 670px;
+    width: 450px;
     background-image: url('1643_color.png');
     background-size: cover;
   }
