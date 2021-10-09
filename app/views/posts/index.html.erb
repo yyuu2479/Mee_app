@@ -1,28 +1,33 @@
-<div class="container">
+<div class="container my-4">
   <h3>投稿一覧</h3>
-  <p><%= link_to '新規投稿ページへ', new_post_path %></p>
-  <%= form_with url: posts_path, method: :get, local: true do |f| %>
-    <%= f.select :sort, options_for_select({'投稿新しい順'=>'new', '投稿が古い順' =>'old'}) %>
-    <%= f.submit '検索' %>
-  <% end %>
+  <p><%= link_to '新規投稿ページへ', new_post_path, class: 'btn btn-outline-info' %></p>
+  <div class="form-group">
+    <%= form_with url: posts_path, method: :get, local: true do |f| %>
+      <%= f.select :sort, options_for_select({'投稿新しい順'=>'new', '投稿が古い順' =>'old'}), class: "form-control" %>
+      <%= f.submit '検索', class: 'btn btn-light' %>
+    <% end %>
+  </div>
   <div class="row">
     <% @posts.each do |post|%>
-      <div class="col-md-4 text-center">
-        <%= link_to post_path(post.id) do%>
-          <%= attachment_image_tag post, :image, size: '300x300' ,format: 'jpeg', fallback: 'no_image2.jpeg'%>
-        <% end %>
-        <div class="text-left">
-          <!--いいねボタン-->
-          <div class="text-right">
-            <%= render 'likes/like_btn', post: post, user: current_user%>
+      <div class="col-md-4 mt-2">
+        <div class="card border-dark">
+          <!--投稿-->
+          <%= link_to post_path(post.id) do%>
+            <%= attachment_image_tag post, :image, size: '350x350' ,format: 'jpeg', fallback: 'no_image2.jpeg', class: 'card-img-top'%>
+          <% end %>
+          <!--投稿タイトル-->
+          <h5 class="card-header"><%= post.title %></h5>
+          <div class="text-left card-body">
+            <!--いいねボタン-->
+            <div class="text-right">
+              <%= render 'likes/like_btn', post: post, user: current_user %>
+            </div>
+            <!--投稿ジャンル-->
+            <p class="text-truncate card-subtitle mb-2 text-muted"><%= post.genre.name %></p>
+            <!--投稿本文-->
+            <p class="text-truncate card-text"><%= post.body %></p>
+            <p class="text-right"><%= time_ago_in_words(post.created_at).upcase %>前</p>
           </div>
-          <!--投稿詳細ページリンク-->
-          <p><%= link_to post.title, post_path(post.id), class: 'text-decoration-none'%></p>
-          <!--投稿ジャンル-->
-          <p class="text-truncate"><%= post.genre.name %></p>
-          <!--投稿本文-->
-          <p class="text-truncate"><%= post.body %></p>
-          <p class="text-right"><%= time_ago_in_words(post.created_at).upcase %>前</p>
         </div>
       </div>
     <% end %>

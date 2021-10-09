@@ -1,12 +1,8 @@
-<% if content.blank? %>
-  <% result_users.each do |user| %>
-    <div class="col-md-3">
-      <%= link_to user_path(user.id), class: 'text-decoration-none' do %>
-        <%= attachment_image_tag user, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg' %>
-        <p class="text-left"><%= user.nickname %></p>
-      <% end %>
-    </div>
-  <% end %>
-<% else %>
-  <p>検索内容にヒットしませんでした！ もう一度入力して下さい！</p>
+<% result_users.each do |user| %>
+  <div class="col-md-3">
+    <%= link_to user_path(user.id), class: 'text-decoration-none' do %>
+      <%= attachment_image_tag user, :image, size: '150x150', format: 'jpeg', fallback: 'no_image.jpeg' %>
+      <p class="text-left"><%= user.nickname %></p>
+    <% end %>
+  </div>
 <% end %>

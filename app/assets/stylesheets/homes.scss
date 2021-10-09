@@ -17,10 +17,32 @@
     justify-content: center;
   }
 }
+// 一番上のボタンのCSS
+.press-down {
+  font-size: 20px;
+  display: inline-block;
+  background-color: #14a2b8;
+  padding: 15px 25px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: 0 6px #0f5762;
+  &:hover{
+    color: white;
+    background-color: #157e8f;
+  }
+  &:active{
+    box-shadow: none;
+    position: relative;
+    top: 6px;
+  }
+}
 // 使い方の部分
 .step {
   height: 550px;
-  .row{
+  .step-about{
+    display: flex;
     justify-content: center;
   }
   .step-image1 {
@@ -39,9 +61,10 @@
   }
 }
 // 特徴解説部分
-.row {
-  align-items: center;
+.feature-about {
+  display: flex;
   justify-content: center;
+  align-items: center;
   .feature-image1 {
     height: 180px;
     width: 310px;
@@ -62,9 +85,14 @@
   }
 }
 // 新規登録
-.new-register-image1 {
-  height: 500px;
-  width: 500px;
-  background-image: url('logo.png');
-  background-size: cover;
+.new-register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .new-register-image1 {
+    height: 500px;
+    width: 500px;
+    background-image: url('logo.png');
+    background-size: cover;
+  }
 }

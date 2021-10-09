@@ -1,3 +1,29 @@
 // Place all the styles related to the searchs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.searchs {
+  height: 700px;
+  .search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .search-text {
+    position: relative;
+    top: 10rem;
+    left: 10px;
+  }
+  .search-image1 {
+    height: 707px;
+    width: 500px;
+    background-image: url('8463_color.png');
+    background-size: cover;
+  }
+  .search-image2 {
+    height: 671px;
+    width: 500px;
+    background-image: url('1643_color.png');
+    background-size: cover;
+  }
+}

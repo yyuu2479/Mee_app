@@ -1,16 +1,25 @@
-<div class="container">
-  <h3>
+<div class="searchs container my-5">
+  <div class="search">
+    <!--@contentが空かどうかで処理分岐-->
     <% if @content.blank? %>
-      検索内容を入力して下さい！
+      <!--@contentが空だったら-->
+      <h3 class="search-text">検索内容を入力して下さい！</h3>
+      <div class="search-image1"></div>
     <% else %>
-      "<%= @content %>"の検索結果
-    <% end %>
-  </h3>
-    <div class="row">
-      <% if @model == 'user'%>
-        <%= render 'searchs/search_user', content: @content, result_users: @result_users %>
-      <% elsif @model == 'post' %>
-        <%= render 'searchs/search_post', content: @content, result_posts: @result_posts %>
+      <h3>"<%= @content %>"の検索結果</h3>
+      <!--＠contentが空じゃなかったら-->
+      <% if @result_posts.blank? %>
+        <h4 class="mx-auto">検索内容にヒットしませんでした！ もう一度入力して下さい！</h4>
+        <div class="search-image2"></div>
+      <% else %>
+        <div class="row">
+          <% if @model == 'user'%>
+            <%= render 'searchs/search_user', content: @content, result_users: @result_users %>
+          <% elsif @model == 'post' %>
+            <%= render 'searchs/search_post', content: @content, result_posts: @result_posts %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

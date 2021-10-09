@@ -1,11 +1,11 @@
 <h3>いいね一覧</h3>
-<table class="table">
-  <thead>
+<table class="table mt-3">
+  <thead class="thead-dark">
     <tr>
       <th></th>
       <th>タイトル</th>
       <th>本文</th>
-      <th>いいね</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -19,11 +19,11 @@
       </td>
       <!--投稿詳細ページへのリンク(投稿タイトル)-->
       <td>
-        <%= link_to like.post.title, post_path(like.post.id), class: 'text-decoration-none text-truncate'  %>
+        <%= link_to like.post.title, post_path(like.post.id), class: 'text-decoration-none text-truncate text-dark' %>
       </td>
       <!--投稿詳細ページへのリンク(投稿本文)-->
       <td>
-        <%= link_to like.post.body, post_path(like.post.id), class: 'text-decoration-none text-truncate'  %>
+        <%= link_to like.post.body, post_path(like.post.id), class: 'text-decoration-none text-break text-dark' %>
       </td>
       <td>
         <!--いいねボタン-->

@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="col-md-5 mx-auto">
-    <h3>Log in</h3>
+<div class="container my-5">
+  <div class="mee-sign_in col-md-6 mx-auto shadow p-5">
+    <h3>Meeにログインする</h3>
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
       <!--メールアドレス-->
       <div class="field form-group">
@@ -20,7 +20,7 @@
       <% end %>
       <!--ログインボタン-->
       <div class="actions">
-        <%= f.submit "Log in", class: 'btn btn-success' %>
+        <%= f.submit "ログイン", class: 'btn btn-success' %>
       </div>
     <% end %>
     <%= render "devise/shared/links" %>
