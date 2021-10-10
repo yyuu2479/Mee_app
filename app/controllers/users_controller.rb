@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @likes = @user.likes.page(params[:page]).per(8)
-
+    # ajaxをする際に使用
+    @follow = Relationship.find_by(follower_id: current_user.id, followed_id: @user.id)
+    
+    # チャットルーム関連の部分
     @current_user_entry = Entry.where(user_id: current_user.id)
     @user_entry = Entry.where(user_id: @user.id)
     unless current_user.id == @user.id
@@ -36,7 +39,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    flash[:notice] = "更新が完了しました"
+    flash[:notice] = "更新が完了しました!"
     redirect_to user_path(@user)
   end
 
