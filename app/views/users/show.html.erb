@@ -25,9 +25,9 @@
             </div>
           <% end %>
           <!--チャットルーム-->
-          <% if @user.following_user?(current_user)%>
+          <div class="chat_<%= @user.id %>">
             <%= render 'rooms/chat_room', is_room: @is_room, room_id: @room_id, room: @room, entry: @entry, user: @user %>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>

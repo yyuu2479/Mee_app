@@ -26,6 +26,24 @@ class RelationshipsController < ApplicationController
     @follow = current_user.follow(@user)
     # フォローしたらnotificationsテーブル(通知モデル)に保存
     @user.create_notification_follow(current_user)
+    
+    @current_user_entry = Entry.where(user_id: current_user.id)
+    @user_entry = Entry.where(user_id: @user.id)
+    unless current_user.id == @user.id
+      @current_user_entry.each do |current|
+        @user_entry.each do |user|
+          if current.room_id == user.room_id
+            @is_room = true
+            @room_id = current.room_id
+          end
+        end
+      end
+      unless @is_room
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
+    
   end
 
   def destroy

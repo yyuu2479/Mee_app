@@ -4,7 +4,6 @@ class MessagesController < ApplicationController
       @message = Message.create(message_params)
       @room = @message.room
       @messages = @room.messages
-      redirect_to room_path(@room.id)
     end
   end
 

@@ -1,12 +1,14 @@
-<% if is_room == true %>
-  <!--既にチャットルームが存在していれば存在しているチャットルームへ-->
-  <%= link_to 'チャットルームへ', room_path(room_id), class: 'fas fa-door-open btn btn-light p-2 mb-2' %>
-<% else %>
-  <!--チャットルームを新規作成-->
-  <%= form_with model: room, local: true do |f| %>
-    <%= fields_for entry do |e|%>
-      <%= e.hidden_field :user_id, value: user.id %>
+  <% if current_user.following_user?(user) && user.following_user?(current_user)%>
+    <% if is_room == true %>
+      <!--既にチャットルームが存在していれば存在しているチャットルームへ-->
+      <%= link_to 'チャットルームへ', room_path(room_id), class: 'fas fa-door-open btn btn-light p-2 mb-2' %>
+    <% else %>
+      <!--チャットルームを新規作成-->
+      <%= form_with model: room, local: true do |f| %>
+        <%= fields_for entry do |e|%>
+          <%= e.hidden_field :user_id, value: user.id %>
+        <% end %>
+        <%= f.submit 'チャットを始める', class: 'fas fa-door-open btn btn-light p-2 mb-2'%>
+      <% end %>
     <% end %>
-    <%= f.submit 'チャットを始める', class: 'fas fa-door-open btn btn-light p-2 mb-2'%>
   <% end %>
-<% end %>

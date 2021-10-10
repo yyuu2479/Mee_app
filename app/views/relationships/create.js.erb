@@ -1,1 +1,3 @@
 $("#follow_<%= @user.id %>").html("<%= j(render 'relationships/follow_btn', user: @user, follow: @follow) %>")
+
+$(".chat_<%= @user.id %>").html("<%= j(render 'rooms/chat_room', is_room: @is_room, room_id: @room_id, room: @room, entry: @entry, user: @user) %>")
