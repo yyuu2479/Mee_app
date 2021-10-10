@@ -42,10 +42,12 @@ class User < ApplicationRecord
   def follow(user)
     self.follower.create(followed_id: user.id)
   end
+  
   # フォロー削除メゾット
   def unfollow(user)
     self.follower.find_by(followed_id: user.id).destroy
   end
+  
   # フォロー確認メゾット
   def following_user?(user)
     self.following_user.include?(user)

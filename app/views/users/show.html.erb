@@ -20,17 +20,13 @@
             <%= link_to '編集する', edit_user_path(@user), class: "fas fa-edit btn btn-outline-success" %>
           <% else %>
           <!--フォローボタン-->
-            <% if current_user.following_user?(@user) %>
-              <!--フォロー解除ボタン-->
-              <%= link_to ' フォロー解除', user_relationship_path(@user), method: :delete, class: 'fas fa-user-minus btn btn-info p-2 mb-1'%>
-                <!--チャットルームボタン-->
-              <% if @user.following_user?(current_user)%>
-                <%= render 'rooms/chat_room', is_room: @is_room, room_id: @room_id, room: @room, entry: @entry, user: @user%>
-              <% end %>
-            <% else %>
-              <!--フォロー作成ボタン-->
-              <%= link_to ' フォローする', user_relationships_path(@user), method: :post, class: 'fas fa-user-plus btn btn-outline-info p-2 mb-1'%>
-            <% end %>
+            <div id="follow_<%= @user.id %>">
+              <%= render 'relationships/follow_btn', user: @user, follow: @follow %>
+            </div>
+          <% end %>
+          <!--チャットルーム-->
+          <% if @user.following_user?(current_user)%>
+            <%= render 'rooms/chat_room', is_room: @is_room, room_id: @room_id, room: @room, entry: @entry, user: @user %>
           <% end %>
         </div>
       </div>

@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @likes = @user.likes.page(params[:page]).per(8)
+    
+    @follow = Relationship.find_by(follower_id: current_user.id, followed_id: @user.id)
 
     @current_user_entry = Entry.where(user_id: current_user.id)
     @user_entry = Entry.where(user_id: @user.id)
