@@ -1,3 +1,23 @@
 // Place all the styles related to the post_comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-cautions{
+  justify-content: center;
+  .comment-texts {
+    border: 3px solid black;
+  }
+  .comment-image {
+    width: 300px;
+    height: 322px;
+    background-image: url('7852_color.png');
+    background-size: cover;
+  }
+  .comment-exsample {
+    font-size: 20px;
+  }
+}
+
+.comment-edit {
+  height: 500px;
+}

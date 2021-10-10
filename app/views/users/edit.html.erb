@@ -5,17 +5,17 @@
       <!--編集フォーム-->
       <%= form_with model: @user, local: true do |f|%>
         <!--ニックネーム-->
-        <div class="form-group">
+        <div class="form-group pt-3">
           <%= f.label :nickname, 'ニックネーム' %>
           <%= f.text_field :nickname, class: 'form-control' %>
         </div>
         <!--プロフ画像-->
-        <div class="form-group">
+        <div class="form-group pt-3">
           <%= f.label :image, '画像' %>
           <%= f.attachment_field :image, class: 'form-control-file' %>
         </div>
         <!--更新ボタン-->
-        <div>
+        <div class="pt-4">
           <%= f.submit '更新する', class: 'btn btn-outline-success' %>
         </div>
       <% end %>

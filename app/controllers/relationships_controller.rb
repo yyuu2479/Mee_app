@@ -5,19 +5,19 @@ class RelationshipsController < ApplicationController
   def following
     @user = User.find(params[:user_id])
     # フォローされた人を取得
-    @followings = @user.following_user
+    @followings = @user.following_user.page(params[:page]).per(8)
   end
   
   def follower
     @user = User.find(params[:user_id])
     # フォローした人を取得
-    @followers = @user.follower_user
+    @followers = @user.follower_user.page(params[:page]).per(8)
   end
   
   def mutual_follow
     @user = User.find(params[:user_id])
     # 相互フォローした人を取得
-    @mutual_follows = @user.mutual_follow
+    @mutual_follows = Kaminari.paginate_array(@user.mutual_follow).page(params[:page]).per(8)
   end
   
   def create

@@ -1,24 +1,33 @@
-<div class="searchs container my-5">
-  <div class="search">
+<div class="searchs mt-4">
+  <div class="search container">
     <!--@contentが空かどうかで処理分岐-->
     <% if @content.blank? %>
-      <!--@contentが空だったら-->
-      <h3 class="search-text">検索内容を入力して下さい！</h3>
-      <div class="search-image1"></div>
+      <!--検索内容を入力していなかったら-->
+      <div class="col-md-12 text-center">
+        <h3 class="search-text">検索内容を入力して下さい！</h3>
+        <div class="search-image1 mx-auto"></div>
+      </div>
     <% else %>
-      <h3>"<%= @content %>"の検索結果</h3>
-      <!--＠contentが空じゃなかったら-->
-      <% if @result_posts.blank? %>
-        <h4 class="mx-auto">検索内容にヒットしませんでした！ もう一度入力して下さい！</h4>
-        <div class="search-image2"></div>
+      <% if @results.blank? %>
+        <!--検索内容にヒットしなかったら-->
+        <div class="col-md-12 text-center">
+          <h3>"<%= @content %>"の検索結果</h3>
+          <h4>検索内容にヒットしませんでした！ もう一度入力して下さい！</h4>
+          <div class="search-image2 mx-auto"></div>
+        </div>
       <% else %>
+        <!--検索内容にヒットしたら-->
+        <h3>"<%= @content %>"の検索結果</h3>
         <div class="row">
           <% if @model == 'user'%>
-            <%= render 'searchs/search_user', content: @content, result_users: @result_users %>
+            <!--ユーザー側の検索結果-->
+            <%= render 'searchs/search_user', content: @content, results: @results %>
           <% elsif @model == 'post' %>
-            <%= render 'searchs/search_post', content: @content, result_posts: @result_posts %>
+            <!--投稿側の検索結果-->
+            <%= render 'searchs/search_post', content: @content, results: @results %>
           <% end %>
         </div>
+        <%= paginate @results %>
       <% end %>
     <% end %>
   </div>

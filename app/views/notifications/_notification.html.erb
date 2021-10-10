@@ -24,8 +24,8 @@
       <% else %>
         <!--コメント通知(自分がコメントした投稿に新しく誰かがコメントを送信した場合)-->
         <p class="d-inline-block">
-          <%= link_to notification.post.user.nickname, user_path(notification.visitor.id),
-          class: 'you-posttext-decoration-none font-weight-bold text-dark rounded-sm' %>
+          <%= link_to notification.post.user.nickname, post_path(notification.post.id),
+          class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>さんの投稿にコメントしました！
         </p>
       <% end %>
       <!--投稿されたコメント表示-->

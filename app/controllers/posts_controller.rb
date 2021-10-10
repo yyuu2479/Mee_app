@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     sort = params[:sort]
-    @posts = Post.sort_for(sort)
+    @posts = Post.sort_for(sort).page(params[:page]).per(9)
   end
 
   def show
