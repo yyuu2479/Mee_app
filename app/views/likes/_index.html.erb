@@ -26,9 +26,9 @@
       <td>
         <%= link_to like.post.body, post_path(like.post.id), class: 'text-decoration-none text-break text-dark' %>
       </td>
-      <td>
-        <!--いいねボタン-->
-        <%= render 'likes/like_btn', post: like.post, user: user%>
+      <td id="like_btn_<%= like.post.id%>">
+        <!--いいねボタン(現在ログインしているユーザーのIDと等しければ表示)-->
+        <%= render 'likes/like_btn', post: like.post if current_user.id == like.user.id %>
       </td>
     </tr>
     <% end %>

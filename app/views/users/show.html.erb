@@ -36,8 +36,8 @@
       </div>
     </div>
     <!--いいね一覧-->
-    <div class="col-md-8">
-      <%= render 'likes/index', likes: @likes, user: @user%>
+    <div id="likes_<%= @user.id%>" class="col-md-8">
+      <%= render 'likes/index', likes: @likes %>
     </div>
   </div>
 </div>

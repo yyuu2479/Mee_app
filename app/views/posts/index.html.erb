@@ -26,7 +26,7 @@
               <h5 class="card-header"><%= post.title %></h5>
               <div class="text-left card-body">
                 <!--いいねボタン-->
-                <div class="text-right">
+                <div id="like_btn_<%= post.id %>" class="text-right">
                   <%= render 'likes/like_btn', post: post, user: current_user %>
                 </div>
                 <!--投稿ジャンル-->
