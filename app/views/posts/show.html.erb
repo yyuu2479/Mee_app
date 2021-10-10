@@ -10,7 +10,7 @@
         <!--投稿本文-->
         <div class="card-body">
           <%= link_to user_path(@post.user.id) do %>
-            <%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: 'no_image.jpeg', size: '50x50', class: 'rounded-circle' %>
+            <%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback: 'no_image2.jpeg', size: '50x50', class: 'rounded-circle' %>
           <% end %>
           <!--いいねボタン-->
           <div class="text-right">
