@@ -32,11 +32,11 @@ class User < ApplicationRecord
 
   # notificationモデルとのアソシエーション(通知モデル)(中間テーブル)(通知送った側の情報取得)
   has_many :visitors, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
-  has_many :notificationing_user, through: :visitor, source: :visited
+  has_many :notificationing_user, through: :visitors, source: :visited
 
   # notificationモデルとのアソシエーション(通知モデル)(中間テーブル)(通知送られた側の情報取得)
   has_many :visiteds, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-  has_many :notificationer_user, through: :visited, source: :visitor
+  has_many :notificationer_user, through: :visiteds, source: :visitor
 
   # フォロー作成メゾット
   def follow(user)

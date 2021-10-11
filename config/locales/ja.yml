@@ -4,16 +4,17 @@ ja:
       user: ユーザー
       room: チャットルーム
       post: 投稿
-      post_comment: コメント 
+      post_comment: コメント
       notification: 通知
       message: チャットメッセージ
-      likes: いいね
+      like: いいね
       genre: ジャンル
-      entrie: エントリー
+      entry: エントリー
+      relationship: フォロー
     attributes:
        post:
          title: タイトル
          body: 本文
          image: 画像
-       post_comment: 
+       post_comment:
          comment: コメント

@@ -36,7 +36,7 @@ class Post < ApplicationRecord
   # コメント通知メゾット
   def create_notification_comment(current_user, post_comment_id)
     temps = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
-
+    
     temps.each do |temp|
       save_notification_comment(current_user, temp[:user_id], post_comment_id)
     end
@@ -54,7 +54,6 @@ class Post < ApplicationRecord
       )
     # 通知を送ったユーザーと通知を送られてユーザーのIDが等しいときは通知を送らない
     notification.checked = true if notification.visitor_id == notification.visited_id
-
     notification.save if notification.valid?
   end
   # 検索メゾット（Post)
