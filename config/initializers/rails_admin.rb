@@ -37,5 +37,8 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+    
   end
+  # 親コントローラーの設定
+  config.parent_controller = 'ApplicationController' 
 end
