@@ -19,6 +19,7 @@
           <% end %>
           <!--登録日時-->
           <div class="card-body">
+            <p class="text-truncate text-left card-text"><%= user.introduction %></p>
             <p class="text-right card-text"><%= time_ago_in_words(user.created_at).upcase %>前</p>
             <!--詳細ページボタン-->
             <%= link_to user_path(user.id), class: 'text-decoration-none' do %>

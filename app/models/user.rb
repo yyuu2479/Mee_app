@@ -42,12 +42,12 @@ class User < ApplicationRecord
   def follow(user)
     self.follower.create(followed_id: user.id)
   end
-  
+
   # フォロー削除メゾット
   def unfollow(user)
     self.follower.find_by(followed_id: user.id).destroy
   end
-  
+
   # フォロー確認メゾット
   def following_user?(user)
     self.following_user.include?(user)
@@ -85,11 +85,11 @@ class User < ApplicationRecord
   # ソートメゾット
   def self.sort_for(sort)
     if sort == 'new'
-      User.order(created_at: :desc)
+      User.order(created_at: :desc).where.not(admin: true)
     elsif sort == 'old'
-      User.order(created_at: :asc)
+      User.order(created_at: :asc).where.not(admin: true)
     else
-      User.order(created_at: :desc)
+      User.order(created_at: :desc).where.not(admin: true)
     end
   end
 end
