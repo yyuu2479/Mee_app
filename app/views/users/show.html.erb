@@ -3,7 +3,7 @@
     <!--ユーザー詳細情報-->
     <div class="col-md-4 mx-auto">
       <h3 class="fas fa-user-edit mt-2"> ユーザー詳細ページ</h3>
-      <div class="card border-dark mt-3">
+      <div class="card border-dark">
         <%= attachment_image_tag @user, :image, size: '350x350', format: 'jpeg', fallback: 'no_image2.jpeg', class: 'card-img-top' %>
         <!--ヘッダー部分-->
         <p class="card-header"><%= @user.nickname %></p>
@@ -31,8 +31,31 @@
         </div>
       </div>
     </div>
+    <!--ユーザー詳細情報-->
+    <div class="col-md-8 mt-5">
+      <table class="table table-bordered">
+        <tbody class="thead-dark">
+          <tr>
+            <th>ニックネーム</th>
+            <td class="text-break text-monospace"><%= @user.nickname %></td>
+          </tr>
+          <tr>
+            <th>自己紹介</th>
+            <td class="text-break text-monospace"><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <th>登録日時</th>
+            <td class="text-break text-monospace"><%= @user.created_at.to_s(:datetime_jp) %></td>
+          </tr>
+          <tr>
+            <th>更新日時</th>
+            <td class="text-break text-monospace"><%= @user.updated_at.to_s(:datetime_jp) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <!--いいね一覧-->
-    <div id="likes_<%= @user.id%>" class="col-md-8">
+    <div id="likes_<%= @user.id%>" class="col-md-12 mt-3">
       <%= render 'likes/index', likes: @likes %>
     </div>
   </div>

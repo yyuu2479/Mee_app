@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Genre.create(name: "友達募集！")
+
 10.times{|i| User.create(first_name: "yuu#{i}", last_name: "yama#{i}", nickname: "yamayuu#{i}", email: "yyuu#{i}@gmail.com", password: "123456#{i}")}
 
-10.times{|i| Post.create(user_id: 1, genre_id: 2, title: "眠い時の勉強の仕方", body: "みなさんどうしてますか?")}
+10.times{|i| Post.create(user_id: 1, genre_id: 1, title: "眠い時の勉強の仕方", body: "みなさんどうしてますか?")}

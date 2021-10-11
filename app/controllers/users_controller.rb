@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @likes = @user.likes.page(params[:page]).per(8)
     # ajaxをする際に使用
     @follow = Relationship.find_by(follower_id: current_user.id, followed_id: @user.id)
-    
+
     # チャットルーム関連の部分
     @current_user_entry = Entry.where(user_id: current_user.id)
     @user_entry = Entry.where(user_id: @user.id)
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :image)
+    params.require(:user).permit(:nickname, :image, :introduction)
   end
 
   def correct_user
