@@ -17,6 +17,18 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+
+@font-face {
+  font-family: 'NotoSansJP-Bold';
+  src: url('NotoSansJP-Bold.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "NotoSansJP-Bold";
+}
+
 .nav-lists {
   align-items: center;
 }
