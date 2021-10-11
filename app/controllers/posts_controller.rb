@@ -4,7 +4,16 @@ class PostsController < ApplicationController
 
   def index
     sort = params[:sort]
-    @posts = Post.sort_for(sort).page(params[:page]).per(9)
+    genre = params[:genre]
+
+    # ソートする内容によって処理を分岐させてます
+    if sort == 'new' && genre.present?
+      @posts = Post.sort_new_genre(sort, genre).page(params[:page]).per(9)
+    elsif sort == 'old' && genre.present?
+      @posts = Post.sort_old_genre(sort, genre).page(params[:page]).per(9)
+    else
+      @posts = Post.sort_for(sort).page(params[:page]).per(9)
+    end
   end
 
   def show

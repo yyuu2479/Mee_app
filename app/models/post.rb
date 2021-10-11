@@ -36,7 +36,7 @@ class Post < ApplicationRecord
   # コメント通知メゾット
   def create_notification_comment(current_user, post_comment_id)
     temps = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
-    
+
     temps.each do |temp|
       save_notification_comment(current_user, temp[:user_id], post_comment_id)
     end
@@ -68,7 +68,7 @@ class Post < ApplicationRecord
       Post.where('title LIKE ?', '%' + content + '%').order(created_at: :desc)
     end
   end
-  # ソートメゾット
+  # ソートメゾット(新着順か古い順か)
   def self.sort_for(sort)
     if sort == 'new'
       Post.order(created_at: :desc)
@@ -78,4 +78,29 @@ class Post < ApplicationRecord
       Post.order(created_at: :desc)
     end
   end
+  # ソートメゾット(新着順かつジャンルを設定してソートした場合)
+  def self.sort_new_genre(sort, genre)
+    if sort == 'new' && genre == '1'
+      Post.where(genre_id: 1).order(created_at: :desc)
+    elsif sort == 'new' && genre == '2'
+      Post.where(genre_id: 2).order(created_at: :desc)
+    elsif sort == 'new' && genre == '3'
+      Post.where(genre_id: 3).order(created_at: :desc)
+    elsif sort == 'new' && genre == '4'
+      Post.where(genre_id: 4).order(created_at: :desc)
+    end
+  end
+  # ソートメゾット(古い順かつジャンルを設定してソートした場合)
+  def self.sort_old_genre(sort, genre)
+    if sort == 'old' && genre == '1'
+      Post.where(genre_id: 1).order(created_at: :asc)
+    elsif sort == 'old' && genre == '2'
+      Post.where(genre_id: 2).order(created_at: :asc)
+    elsif sort == 'old' && genre == '3'
+      Post.where(genre_id: 3).order(created_at: :asc)
+    elsif sort == 'old' && genre == '4'
+      Post.where(genre_id: 4).order(created_at: :asc)
+    end
+  end
+
 end
