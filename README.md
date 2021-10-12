@@ -18,11 +18,12 @@
 パソコンやスマートフォンを通して利用する。
 
 ## 設計書
-- 作成するか未定なのでとりあえずこの状態にしておきます。
-- 作成でき次第追加していきたいと思います。
+- [ER図](https://drive.google.com/file/d/1-mAz0yIts8MJtYANLcHDS6ywqyzwOwmS/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1cjqzJWMxYcTix6_Ns5PeII6d2kZ96YQoGHXNwtdOBj4/edit?usp=sharing)
+- [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1coUNwpfLQBZBB4Ngeb4jT8fwX6oCnpN5348e6TvAk9A/edit?usp=sharing)
 
 ## 機能一覧(チャレンジ要素一覧)
 https://docs.google.com/spreadsheets/d/1JIKrrLIDg4l8e_K9Gf3ELgxnmuX5sFx62ghOC43_gzY/edit?usp=sharing
 
 ## 使用素材
-- 実装していく段階で画像などは使うはずなので、使う度に記入していきたいと思います。（現段階ではどういう画像を使うか決まっていないので）
+イラスト画像: ソコスト 商用可・フリーのイラスト素材集
