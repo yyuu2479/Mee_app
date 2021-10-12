@@ -21,8 +21,10 @@ class RoomsController < ApplicationController
     @room = Room.create
     # 現在ログインしているユーザーがチャットルームにエントリーした情報をentriesテーブルに保存している
     Entry.create(user_id: current_user.id, room_id: @room.id)
-    # フォローされてユーザーがチャットルームにエントリーした情報をentriesテーブルに保存している
-    Entry.create(entry_params)
+    # フォローされたユーザーがチャットルームにエントリーした情報をentriesテーブルに保存している
+    entry2 = Entry.create(entry_params)
+    
+    @room.create_notification_room(current_user, entry2)
     redirect_to room_path(@room.id)
   end
   

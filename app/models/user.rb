@@ -63,8 +63,6 @@ class User < ApplicationRecord
     if temp.blank?
       notification = current_user.visitors.new(
         visited_id: id,
-        post_id: 0,
-        post_comment_id: 0,
         action: 'follow'
       )
       notification.save if notification.valid?
@@ -101,7 +99,6 @@ class User < ApplicationRecord
       user.nickname = 'ゲスト'
       user.password = SecureRandom.urlsafe_base64
       user.introduction = 'ゲストユーザーです'
-      flash[:notice] = "ゲストユーザーとしてログインしました！！"
     end
   end
 end
