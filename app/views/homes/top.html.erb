@@ -9,9 +9,18 @@
       楽しく話し合える環境をご提供します！
     </h1>
     <!--ボタン部分-->
-    <div class="top-new-btn mt-3 mx-auto">
-      <%= link_to 'さっそく始めてみる！！', new_user_registration_path, class: 'press-down text-decoration-none' %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="top-new-btn mt-3 mx-auto">
+        <%= link_to '投稿一覧ページへGO!', posts_path, class: 'press-down text-decoration-none' %>
+      </div>
+    <% else %>
+      <div class="top-new-btn mt-3 mx-auto">
+        <%= link_to 'さっそく始めてみる！！', new_user_registration_path, class: 'press-down text-decoration-none' %>
+      </div>
+      <div class="top-new-btn mt-3 mx-auto">
+        <%= link_to 'ゲストユーザーとしてログインする？', users_guest_sign_in_path, method: :post, class: 'btn btn-primary btn-sm text-decoration-none' %>
+      </div>
+    <% end %>
   </div>
 </div>
 <div class="container">

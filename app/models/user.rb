@@ -92,4 +92,16 @@ class User < ApplicationRecord
       User.order(created_at: :desc).where.not(admin: true)
     end
   end
+
+  # ゲストユーザー作成・探すメゾット
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.first_name = 'ゲスト'
+      user.last_name = 'ゲスト'
+      user.nickname = 'ゲスト'
+      user.password = SecureRandom.urlsafe_base64
+      user.introduction = 'ゲストユーザーです'
+      flash[:notice] = "ゲストユーザーとしてログインしました！！"
+    end
+  end
 end
