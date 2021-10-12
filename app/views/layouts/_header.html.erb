@@ -27,7 +27,7 @@
               <!--通知あったら円が右下にあるようにif文で条件分岐させてある-->
               <%= link_to  notifications_path, class: 'header-notification nav-list nav-link text-decoration-none' do %>
                 <% if unchecked_notifications.any? %>
-                  <i class="fas fa-circle n-circle"></i>
+                  <p class="n-circle rounded-circle px-1"><%= current_user.visiteds.count %></p>
                 <% end %>
                   <li class="far fa-bell header-notifications nav-item px-2 font-weight-bold"> 通知一覧</li>
               <% end %>
