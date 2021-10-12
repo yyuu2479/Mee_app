@@ -10,4 +10,14 @@ class NotificationsController < ApplicationController
       notification.update_attributes(checked: true)
     end
   end
+
+  # 自分宛に送られた通知を削除するルーティング
+  def destroy
+    user = User.find(params[:id])
+    notifications = Notification.where(visited_id: user.id)
+    notifications.each do |notification|
+      notification.destroy
+    end
+    redirect_to notifications_path
+  end
 end

@@ -32,6 +32,16 @@
       <div class="opacity">
         <%= notification.post_comment.comment %>
       </div>
+    <% elsif notification.action == 'chat_room'%>
+      <p class="d-inline-block">あなたとチャットを開始しました！</p>
+    <% elsif notification.action == 'chat_message' %>
+      <p class="d-inline-block">
+        <%= link_to 'チャットルーム', room_path(notification.room.id),
+        class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>内にメッセージを送信しました！
+      </p>
+      <div class="opacity">
+        <%= notification.message.body %>
+      </div>
     <% end %>
     <p class="text-right"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
   </td>
