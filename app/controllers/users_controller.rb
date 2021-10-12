@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only:[:edit, :update]
+  before_action :correct_user, only:[:edit, :update, :destroy]
 
   def index
     sort = params[:sort]
@@ -43,6 +43,19 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def withdrawal
+    @user = User.find(params[:user_id])
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    flash[:notice] = "退会しました！ またのご利用をお待ちしております！！"
+    redirect_to root_path
+  end
+
+
+
   private
 
   def user_params
@@ -51,6 +64,7 @@ class UsersController < ApplicationController
 
   def correct_user
     user = User.find(params[:id])
+
     redirect_to users_path unless user.id == current_user.id
   end
 

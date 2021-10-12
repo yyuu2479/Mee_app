@@ -19,10 +19,14 @@
           <%= f.label :introduction, '画像' %>
           <%= f.text_area :introduction, class: 'form-control', size: '30x10' %>
         </div>
-
         <!--更新ボタン-->
-        <div class="pt-4">
-          <%= f.submit '更新する', class: 'btn btn-outline-success' %>
+        <div class="row mx-auto">
+          <div class="pt-4">
+            <%= f.submit '更新する', class: 'btn btn-outline-success' %>
+          </div>
+          <div class="ml-auto pt-4">
+            <%= link_to '退会する？', user_withdrawal_path(current_user.id), class: 'btn btn-outline-danger' %>
+          </div>
         </div>
       <% end %>
     </div>

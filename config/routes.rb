@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
-  resources :users, only:[:index, :show, :edit, :update] do
+  resources :users, only:[:index, :show, :edit, :update, :destroy] do
+    get 'withdrawal', as: 'withdrawal'
     resources :relationships, only:[:create, :destroy]
     get 'relationships/following', as: 'following'
     get 'relationships/follower', as: 'follower'
