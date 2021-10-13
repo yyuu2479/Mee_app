@@ -18,6 +18,7 @@ class NotificationsController < ApplicationController
     notifications.each do |notification|
       notification.destroy
     end
+    flash[:alert] = "通知を全て削除しました！"
     redirect_to notifications_path
   end
 end
