@@ -4,6 +4,7 @@ class Users::SessionsController < Devise::SessionsController
     user = User.guest
     # ここで新規登録とログインしている(deviseのメゾット)
     sign_in user
+    flash[:notice] = "ゲストユーザーとしてログインしました！！"
     redirect_to user_path(user.id)
   end
 end
