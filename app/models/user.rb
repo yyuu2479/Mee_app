@@ -99,6 +99,7 @@ class User < ApplicationRecord
       user.nickname = 'ゲスト'
       user.password = SecureRandom.urlsafe_base64
       user.introduction = 'ゲストユーザーです'
+      user.admin = true
     end
   end
 end
