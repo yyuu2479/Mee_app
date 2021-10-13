@@ -1,4 +1,5 @@
 <!--チャット部分-->
+<% provide(:title, "#{@another_entry.user.nickname}さんとのチャットルーム")%>
 <div class="container chat-room mt-5">
   <h3><%= @another_entry.user.nickname %>さんとのチャットルーム</h3>
   <div id="chat_message_<%= @room.id %>" class="line-bc col-md-12">
