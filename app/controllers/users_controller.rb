@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     sort = params[:sort]
-    @users = User.sort_for(sort).page(params[:page]).per(9)
+    @users = User.sort_for(sort).page(params[:page]).per(10)
   end
 
   def show

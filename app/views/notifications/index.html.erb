@@ -1,9 +1,9 @@
 <div class="container my-5 notifications">
-  <div class="col-md-7 mx-auto">
+  <div class="col-sm-12 col-lg-9 mx-auto">
     <h3 class="far fa-bell font-weight-bold">通知一覧ページ</h3>
     <!--@notificationsの中身が空じゃなかったら-->
     <% unless @notifications.blank? %>
-      <%= link_to '通知を全て削除する', notification_path(current_user.id), method: :delete, 
+      <%= link_to '通知を全て削除する', notification_path(current_user.id), method: :delete,
       class: 'text-decoration-none', data:{confirm: "本当に削除しますか？" } %>
     <% end %>
     <%= paginate @notifications %>

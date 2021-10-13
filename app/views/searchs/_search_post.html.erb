@@ -1,18 +1,18 @@
 <!--result_postsの中身が空かどうかで処理分岐-->
 <% results.each do |post| %>
-  <div class="col-md-12 my-2">
+  <div class="col-lg-12 my-2">
     <!--カード部分-->
     <div class="card border-dark">
       <div class="row no-gutters">
         <!--右側の画像-->
-        <div class="col-md-4">
+        <div class="col-sm-5">
           <!--投稿-->
           <%= link_to post_path(post.id) do%>
             <%= attachment_image_tag post, :image, size: '350x350' ,format: 'jpeg', fallback: 'no_image2.jpeg', class: 'card-img-top'%>
           <% end %>
         </div>
         <!--左側のテキスト部分-->
-        <div class="col-md-8">
+        <div class="col-sm-7">
           <!--投稿タイトル-->
           <h5 class="card-header"><%= post.title %></h5>
           <div class="text-left card-body">
