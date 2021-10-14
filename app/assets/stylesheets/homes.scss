@@ -17,16 +17,7 @@
     justify-content: center;
   }
 }
-
-.mee-top-color {
- color: #38acff;
- text-shadow:
-    1px 0 0 black,
-    0 1px 0 black,
-    -1px 0 0 black,
-    0 -1px 0 black
-}
-
+// topページのMeeのカラー、文字の縁取り
 .mee-color {
  color: #38acff;
  text-shadow:
@@ -64,6 +55,7 @@
 .fa-bookmark {
   color: red;
 }
+// 使い方の部分のCSS
 .step {
   .step-about{
     display: flex;

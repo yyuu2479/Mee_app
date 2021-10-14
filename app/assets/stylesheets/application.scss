@@ -17,23 +17,22 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-
+// フォントの読み込み
 @font-face {
   font-family: 'NotoSansJP-Bold';
   src: url('NotoSansJP-Bold.otf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
+// ページ全体のフォントの変更
 body {
   font-family: "NotoSansJP-Bold";
 }
-
+// ナビゲーションバーのテキストの高さを真ん中に
 .nav-lists {
   align-items: center;
 }
-
-
+// 基準位置の変更
 .header-notification {
   position: relative;
 }
