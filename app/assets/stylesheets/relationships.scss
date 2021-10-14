@@ -6,3 +6,23 @@
 .relationships {
   height: 500px;
 }
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width:1024px) {
+
+}
+// タブレット縦置き
+@media screen and (max-width:768px) {
+  .relationships {
+    padding-top: 60px;
+    height: 610px;
+  }
+}
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .relationships {
+    padding-top: 0px;
+    height: 830px;
+  }
+}

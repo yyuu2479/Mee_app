@@ -5,7 +5,6 @@
     <tr>
       <th></th>
       <th>タイトル</th>
-      <th>本文</th>
       <th></th>
     </tr>
   </thead>
@@ -20,11 +19,7 @@
       </td>
       <!--投稿詳細ページへのリンク(投稿タイトル)-->
       <td>
-        <%= link_to like.post.title, post_path(like.post.id), class: 'text-decoration-none text-truncate text-dark' %>
-      </td>
-      <!--投稿詳細ページへのリンク(投稿本文)-->
-      <td>
-        <%= link_to like.post.body, post_path(like.post.id), class: 'text-decoration-none text-break text-dark' %>
+        <%= link_to like.post.title, post_path(like.post.id), class: 'text-decoration-none text-break text-dark' %>
       </td>
       <td id="like_btn_<%= like.post.id%>">
         <!--いいねボタン(現在ログインしているユーザーのIDと等しければ表示)-->

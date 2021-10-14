@@ -7,22 +7,22 @@
       <!--名字-->
       <div class="field form-group">
         <%= f.label :last_name %><br />
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "first_name", :placeholder => "山田", class: 'form-control w-25'  %>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "first_name", :placeholder => "山田", class: 'form-control w-50'  %>
       </div>
       <!--名前-->
       <div class="field form-group">
         <%= f.label :first_name %><br />
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "last_name", :placeholder => "太郎", class: 'form-control w-25' %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "last_name", :placeholder => "太郎", class: 'form-control w-50' %>
       </div>
       <!--ニックネーム-->
       <div class="field form-group">
         <%= f.label :nickname %><br />
-        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", :placeholder => "yamadatarou", class: 'form-control w-50' %>
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", :placeholder => "yamadatarou", class: 'form-control w-75' %>
       </div>
       <!--メールアドレス-->
       <div class="field form-group">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exsample.com", class: 'form-control w-75' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exsample.com", class: 'form-control' %>
       </div>
       <!--パスワード-->
       <div class="field form-group">

@@ -113,3 +113,31 @@
     background-size: cover;
   }
 }
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width:1024px) {
+
+}
+// タブレット縦置き
+@media screen and (max-width:768px) {
+  
+}
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .feature-about {
+    display: flex;
+    flex-direction: column
+  }
+  .feature-text {
+    order: 2;
+  }
+  .feature-image-center {
+    order: 1;
+  }
+  .feature-image1,
+  .feature-image2,
+  .feature-image3 {
+    margin: 0 auto;
+  }
+}

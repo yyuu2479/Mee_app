@@ -4,6 +4,8 @@
     <title><%= full_title(yield(:title))%></title>
     <%= csrf_meta_tags %>
 
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -18,7 +20,7 @@
     <% elsif flash[:notice]%>
       <h6 class="alert alert-success font-weight-bold mb-0"><%= notice %></h6>
     <% end %>
-    <main class="mb-5">
+    <main>
       <%= yield %>
     </main>
     <%= render 'layouts/footer' %>

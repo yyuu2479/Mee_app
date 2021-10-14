@@ -1,6 +1,6 @@
 <% provide(:title, "ユーザー一覧")%>
-<div class="container my-5">
-  <h3 class="fas fa-users"> ユーザー一覧</h3>
+<div class="container my-4">
+  <h3><i class="fas fa-users text-secondary"></i> ユーザー一覧</h3>
   <!--ソート機能-->
   <div class="form-group">
     <%= form_with url: users_path, method: :get, local: true do |f| %>

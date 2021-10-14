@@ -3,7 +3,7 @@
   <h3 class="font-weight-bold">フォロー一覧</h3>
   <div class="row">
     <% @followings.each do |following|%>
-      <div class="col-md-3 text-center">
+      <div class="col-6 col-md-3 text-center">
         <!--ユーザー詳細ページへのリンク-->
         <%= link_to user_path(following), class: 'text-decoration-none' do%>
           <!--プロフ画像-->

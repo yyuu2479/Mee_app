@@ -1,17 +1,17 @@
 <% provide(:title, "ログイン")%>
-<div class="container my-5">
+<div class="login-page container my-5">
   <div class="mee-sign_in col-sm-10 col-lg-6 mx-auto shadow p-5">
     <h3>Meeにログインする</h3>
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
       <!--メールアドレス-->
       <div class="field form-group">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exsample.com", class: 'form-control w-75' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exsample.com", class: 'form-control' %>
       </div>
       <!--パスワード-->
       <div class="field form-group">
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control w-50' %>
+        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control w-75' %>
       </div>
       <% if devise_mapping.rememberable? %>
         <div class="field form-group form-check">
