@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   def index
     sort = params[:sort]
     genre = params[:genre]
-
     # ソートする内容によって処理を分岐させてます
     if sort == 'new' && genre.present?
       @posts = Post.sort_new_genre(sort, genre).page(params[:page]).per(9)

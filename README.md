@@ -1,5 +1,5 @@
 # アプリ名：Mee
-![logo (1)](https://user-images.githubusercontent.com/86969200/135372013-e66c1e33-bf95-453c-926d-0c53aaeed771.png)
+![logo (4)](https://user-images.githubusercontent.com/86969200/137242486-c1e28477-63ec-4f85-ba1d-5e3bce50aef3.png)
 ## 概要
 自身の就活用のポートフォリオとして作成いたしました。
 コミュニケーション系のアプリケーションを作成いたしました。
