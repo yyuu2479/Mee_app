@@ -18,6 +18,24 @@
   }
 }
 
+.mee-top-color {
+ color: #38acff;
+ text-shadow:
+    1px 0 0 black,
+    0 1px 0 black,
+    -1px 0 0 black,
+    0 -1px 0 black
+}
+
+.mee-color {
+ color: #38acff;
+ text-shadow:
+    1px 0 0 black,
+    0 1px 0 black,
+    -1px 0 0 black,
+    0 -1px 0 black
+}
+
 // 一番上のボタンのCSS
 .press-down {
   font-size: 20px;
@@ -40,6 +58,12 @@
   }
 }
 // 使い方の部分
+.step-text {
+  padding-left: 29px;
+}
+.fa-bookmark {
+  color: red;
+}
 .step {
   .step-about{
     display: flex;
@@ -63,6 +87,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .feature-about-text {
+    font-size: 19px;
+  }
   .feature-image1 {
     height: 180px;
     width: 310px;
@@ -88,8 +115,8 @@
   align-items: center;
   justify-content: space-evenly;
   .new-register-image1 {
-    height: 500px;
-    width: 500px;
+    height: 450px;
+    width: 400px;
     background-image: url('logo.png');
     background-size: cover;
   }
