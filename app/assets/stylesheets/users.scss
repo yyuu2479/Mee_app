@@ -9,17 +9,48 @@
 // レスポンシブデザイン
 // タブレット
 @media screen and (max-width:1024px) {
-
+ .user-edit {
+   padding-top: 100px;
+   padding-bottom: 140px;
+ }
+ .withdrawal {
+    padding-top: 100px;
+    height: 1040px;
+  }
+  .withdrawal-image {
+    margin-top: 110px;
+    height: 700px;
+    width: 550px;
+    background-image: url('1643_color.png');
+    background-size: cover;
+  }
 }
 // タブレット縦置き
 @media screen and (max-width:768px) {
   .login-page {
     height: 650px;
   }
+  .withdrawal {
+    height: 700px;
+  }
+  .withdrawal-image {
+    margin-top: 110px;
+    height: 480px;
+    width: 350px;
+    background-image: url('1643_color.png');
+    background-size: cover;
+  }
 }
 // スマートフォンサイズ
 @media screen and (max-width:425px) {
+  .user-edit {
+   padding-top: 30px;
+   padding-bottom: 30px;
+  }
   .login-page {
     height: 450px;
+  }
+  .withdrawal {
+    height: 700px;
   }
 }

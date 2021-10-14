@@ -17,3 +17,25 @@
     font-size: 20px;
   }
 }
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width:1024px) {
+  .chat-cautions{
+    padding-top: 153px;
+    flex-direction: column
+  }
+  .chat-image {
+    margin-left: auto;
+  }
+}
+// タブレット縦置き
+@media screen and (max-width:768px) {
+
+}
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .chat-cautions{
+    padding-top: 30px;
+  }
+}
