@@ -1,6 +1,8 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 通知一覧関連のCSS
 .notifications {
   height: 800px;
   .who-nickname {
@@ -21,4 +23,13 @@
 
 .opacity {
   opacity: 0.7;
+}
+
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width:1024px) {
+  .notifications {
+    height: 1000px;
+  }
 }

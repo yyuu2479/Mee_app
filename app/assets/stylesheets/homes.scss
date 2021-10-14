@@ -121,7 +121,7 @@
 }
 // タブレット縦置き
 @media screen and (max-width:768px) {
-  
+
 }
 // スマートフォンサイズ
 @media screen and (max-width:425px) {
@@ -139,5 +139,11 @@
   .feature-image2,
   .feature-image3 {
     margin: 0 auto;
+  }
+  .new-register{
+    .new-register-image1 {
+      height: 350px;
+      width: 300px;
+    }
   }
 }

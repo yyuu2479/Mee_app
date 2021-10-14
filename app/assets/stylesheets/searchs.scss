@@ -21,3 +21,28 @@
     background-size: cover;
   }
 }
+
+// レスポンシブデザイン
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .searchs {
+    .search-text {
+      font-size: 18px;
+      position: relative;
+      top: 6rem;
+      left: 5px;
+    }
+    .search-image1 {
+      height: 500px;
+      width: 300px;
+      background-image: url('8463_color.png');
+      background-size: cover;
+    }
+    .search-image2 {
+      height: 580px;
+      width: 380px;
+      background-image: url('1643_color.png');
+      background-size: cover;
+    }
+  }
+}
