@@ -60,3 +60,14 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+// レスポンシブデザイン
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .site-logo {
+    text-align: center;
+  }
+  button {
+    margin: 0 auto;
+  }
+}
