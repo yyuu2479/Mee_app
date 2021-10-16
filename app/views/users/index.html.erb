@@ -3,33 +3,14 @@
   <h3><i class="fas fa-users text-secondary"></i> ユーザー一覧</h3>
   <!--ソート機能-->
   <div class="form-group">
-    <%= form_with url: users_path, method: :get, local: true do |f| %>
+    <%= form_with url: users_path, method: :get, remote: true do |f| %>
       <%= f.select :sort, options_for_select({'登録日時が新しい順'=>'new', '登録日時が古い順'=>'old'}), class: 'form-control' %>
       <%= f.submit '検索', class: 'btn btn-light' %>
     <% end %>
   </div>
   <!--ユーザー一覧部分-->
-  <div class="row">
-    <% @users.each do |user| %>
-      <div class="col-sm-6 col-lg-4 text-center mx-auto">
-        <div class="card border-dark mb-3">
-          <!--ユーザー画像-->
-          <%= link_to user_path(user.id), class: 'text-decoration-none' do %>
-            <%= attachment_image_tag user, :image, size: '350x350', format: 'jpeg', fallback: 'no_image2.jpeg', class: 'bd-placeholder-img card-img-top' %>
-            <p class="text-left text-body card-header"><%= user.nickname %></p>
-          <% end %>
-          <!--登録日時-->
-          <div class="card-body">
-            <p class="text-truncate text-left card-text"><%= user.introduction %></p>
-            <p class="text-right card-text"><%= time_ago_in_words(user.created_at).upcase %>前</p>
-            <!--詳細ページボタン-->
-            <%= link_to user_path(user.id), class: 'text-decoration-none' do %>
-              <p class="font-weight-bold text-dark text-right">詳細ページへ！<i class="fas fa-angle-double-right"></i></p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <div id="users_index" class="row">
+    <%= render 'users/list', users: @users %>
   </div>
   <%= paginate @users %>
 </div>
