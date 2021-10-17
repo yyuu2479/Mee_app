@@ -16,7 +16,7 @@
             <% if user_signed_in? %>
               <!--ログイン後ヘッダー-->
               <%= link_to user_path(current_user), class: 'nav-link'  do %>
-                <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: asset_path('no_image2'), size: '50x50', class: 'rounded-circle' %>
+                <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: asset_path('no_image2.jpeg'), size: '50x50', class: 'rounded-circle' %>
               <% end %>
               <li class="nav-item">
                 <%= link_to 'ユーザー一覧', users_path, class: 'fas fa-users header-users nav-link text-decoration-none px-2'%>
