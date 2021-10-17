@@ -1,3 +1,141 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 一番最初に出る画像関連のCSS
+.top-image {
+  width: 100%;
+  height: 550px;
+  background-image: image-url('ELL75_yousyohondana20120620_TP_V.jpg');
+  background-size: cover;
+  .text {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 550px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+// topページのMeeのカラー、文字の縁取り
+.mee-color {
+ color: #38acff;
+ text-shadow:
+    1px 0 0 black,
+    0 1px 0 black,
+    -1px 0 0 black,
+    0 -1px 0 black
+}
+
+// 一番上のボタンのCSS
+.press-down {
+  font-size: 20px;
+  display: inline-block;
+  background-color: #14a2b8;
+  padding: 15px 25px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: 0 6px #0f5762;
+  &:hover{
+    color: white;
+    background-color: #157e8f;
+  }
+  &:active{
+    box-shadow: none;
+    position: relative;
+    top: 6px;
+  }
+}
+// 使い方の部分
+.step-text {
+  padding-left: 29px;
+}
+.fa-bookmark {
+  color: red;
+}
+// 使い方の部分のCSS
+.step {
+  .step-about{
+    display: flex;
+    justify-content: space-around;
+  }
+  .step-image1 {
+    height: 280px;
+    width: 310px;
+    background-image: image-url('10223_color.png');
+    background-size: cover;
+  }
+  .step-image2 {
+    height: 280px;
+    width: 310px;
+    background-image: image-url('11813_color.png');
+    background-size: cover;
+  }
+}
+// 特徴解説部分
+.feature-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .feature-about-text {
+    font-size: 19px;
+  }
+  .feature-image1 {
+    height: 180px;
+    width: 310px;
+    background-image: image-url('11369_color.png');
+    background-size: cover;
+  }
+  .feature-image2 {
+    height: 180px;
+    width: 330px;
+    background-image: image-url('11383_color.png');
+    background-size: cover;
+  }
+  .feature-image3 {
+    height: 180px;
+    width: 310px;
+    background-image: image-url('7139_color.png');
+    background-size: cover;
+  }
+}
+// 新規登録
+.new-register{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  .new-register-image1 {
+    height: 450px;
+    width: 400px;
+    background-image: image-url('logo.png');
+    background-size: cover;
+  }
+}
+
+// レスポンシブデザイン
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .feature-about {
+    display: flex;
+    flex-direction: column
+  }
+  .feature-text {
+    order: 2;
+  }
+  .feature-image-center {
+    order: 1;
+  }
+  .feature-image1,
+  .feature-image2,
+  .feature-image3 {
+    margin: 0 auto;
+  }
+  .new-register{
+    .new-register-image1 {
+      height: 350px;
+      width: 300px;
+    }
+  }
+}

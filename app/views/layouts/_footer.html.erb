@@ -1,0 +1,13 @@
+<footer class="bg-dark">
+  <p class="text-center text-white">© Mee. All rights reserved.</p>
+  <div class="container">
+    <div class="footer-item">
+      <%= link_to '会社概要', root_path, class: 'text-decoration-none text-white pb-3' %>
+      <%= link_to '利用規約', root_path, class: 'text-decoration-none text-white pb-3' %>
+      <%= link_to 'お問い合わせ', root_path, class: 'text-decoration-none text-white pb-3' %>
+      <% if current_user.try(:admin?)%>
+        <%= link_to '管理者ページへ', rails_admin_path, class: 'text-decoration-none text-white pb-3' %>
+      <% end %>
+    </div>
+  </div>
+</footer>

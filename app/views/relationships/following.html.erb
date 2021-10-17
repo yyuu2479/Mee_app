@@ -1,0 +1,18 @@
+<% provide(:title, "フォロー一覧")%>
+<div class="container my-5 relationships">
+  <h3 class="font-weight-bold">フォロー一覧</h3>
+  <div class="row">
+    <% @followings.each do |following|%>
+      <div class="col-6 col-md-3 text-center">
+        <!--ユーザー詳細ページへのリンク-->
+        <%= link_to user_path(following), class: 'text-decoration-none' do%>
+          <!--プロフ画像-->
+          <%= attachment_image_tag following, :image, size: '150x150', format: 'jpeg', fallback: 'no_image2.jpeg'%>
+          <!--ユーザー名(ニックネーム)-->
+          <p class="text-dark"><%= following.nickname %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @followings %>
+</div>

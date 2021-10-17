@@ -1,0 +1,48 @@
+<tr>
+  <td>
+    <p class="d-inline-block">
+      <%= link_to notification.visitor.nickname, user_path(notification.visitor.id),
+      class: 'who-nickname font-weight-bold text-decoration-none text-dark rounded-sm' %>さんが
+    </p>
+    <!--notificationsテーブル(通知モデル)のactionカラムの値で処理を分岐-->
+    <% if notification.action == "follow" %>
+      <!--フォロー通知-->
+      <p class="d-inline-block">あなたをフォローしました！</p>
+    <% elsif notification.action == "like"%>
+      <!--いいね通知-->
+      <p class="d-inline-block">
+        <%= link_to 'あなたの投稿', post_path(notification.post.id),
+        class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>にいいねしました！
+      </p>
+    <% elsif notification.action == "post_comment" %>
+      <% if notification.post.user.id == notification.visited.id%>
+        <!--コメント通知(自分の投稿にコメントが付いた時の通知)-->
+        <p class="d-inline-block">
+          <%= link_to 'あなたの投稿', post_path(notification.post.id),
+          class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>にコメントしました！
+        </p>
+      <% else %>
+        <!--コメント通知(自分がコメントした投稿に新しく誰かがコメントを送信した場合)-->
+        <p class="d-inline-block">
+          <%= link_to notification.post.user.nickname, post_path(notification.post.id),
+          class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>さんの投稿にコメントしました！
+        </p>
+      <% end %>
+      <!--投稿されたコメント表示-->
+      <div class="opacity">
+        <%= notification.post_comment.comment %>
+      </div>
+    <% elsif notification.action == 'chat_room'%>
+      <p class="d-inline-block">あなたとチャットを開始しました！</p>
+    <% elsif notification.action == 'chat_message' %>
+      <p class="d-inline-block">
+        <%= link_to 'チャットルーム', room_path(notification.room.id),
+        class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>内にメッセージを送信しました！
+      </p>
+      <div class="opacity">
+        <%= notification.message.body %>
+      </div>
+    <% end %>
+    <p class="text-right"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
+  </td>
+</tr>

@@ -1,0 +1,36 @@
+<div class="col-sm-12 col-lg-8">
+  <%= link_to 'コメントを投稿する', new_post_post_comment_path(post.id), class: "btn btn-light far fa-comment-dots my-1 p-2" %>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th></th>
+        <th>コメント</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% post_comments.each do |post_comment|%>
+        <tr>
+          <!--コメント投稿者画像(ユーザー詳細ページへのリンク)-->
+          <td>
+            <%= link_to user_path(post_comment.user.id) do%>
+              <%= attachment_image_tag post_comment.user, :image, size: '50x50', format: 'jpeg', fallback: 'no_image2.jpeg', class: 'rounded-circle'%>
+            <% end %>
+          </td>
+          <!--コメント内容-->
+          <td>
+            <p class="text-break"><%= post_comment.comment %></p>
+          </td>
+          <!--編集・削除ボタン-->
+          <td class="text-center">
+            <% if post_comment.user.id == current_user.id %>
+              <%= link_to '編集', edit_post_post_comment_path(post_comment.post.id, post_comment.id), class: 'btn btn-success' %>
+              <%= link_to '削除', post_post_comment_path(post_comment.post.id, post_comment.id), method: :delete,
+              data:{confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

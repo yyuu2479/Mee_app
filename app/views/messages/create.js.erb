@@ -1,0 +1,2 @@
+$("#chat_message_<%= @room.id %>").html("<%= j(render 'messages/message', messages: @messages) %>")
+$("#message_body").val("")

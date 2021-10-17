@@ -1,2 +1,105 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<!--一番上の部分-->
+<div class="top-image">
+  <div class="text">
+    <h1 class="text-white text-center mx-auto">
+      ようこそ<span class="mee-color">Mee</span>へ！<br>
+      話し相手が欲しい、<br>
+      ゲーム仲間が欲しいといったような<br>
+      共通の目的を持った人同士が<br>
+      楽しく話し合える環境をご提供します！
+    </h1>
+    <!--ボタン部分-->
+    <% if user_signed_in? %>
+      <div class="top-new-btn mt-3 mx-auto">
+        <%= link_to '投稿一覧ページへGO!', posts_path, class: 'press-down text-decoration-none' %>
+      </div>
+    <% else %>
+      <div class="top-new-btn mt-3 mx-auto">
+        <%= link_to 'さっそく始めてみる！！', new_user_registration_path, class: 'press-down text-decoration-none' %>
+      </div>
+      <div class="top-new-btn mt-3 mx-auto">
+        <%= link_to 'ゲストユーザーとしてログインする？', users_guest_sign_in_path, method: :post, class: 'btn btn-primary btn-sm text-decoration-none' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <!--使い方の部分-->
+  <div class="step pt-5">
+    <h3><i class="fas fa-bookmark"></i> <span class="mee-color">Mee</span>の利用ステップ</h3>
+    <p class="step-text"><span class="mee-color">Mee</span>の基本的な使い方を簡単にご紹介！！</p>
+    <div class="row step-about">
+      <!--左側の画像関連-->
+      <div class="step-image-left col-sm-5 text-center">
+        <div class="step-image1 d-inline-block"></div>
+        <p>1. 気になる投稿を探す</p>
+      </div>
+      <!--右側の画像関連-->
+      <div class="step-image-right col-sm-5 text-center">
+        <div class="step-image2 d-inline-block"></div>
+        <p>2. 気になる投稿にコメントを残し、利用している人たちと楽しく交流！</p>
+      </div>
+    </div>
+    <!--チャット機能も使えるよみたいな説明部分-->
+    <h4 class="mt-2 text-center">さらに、<span class="mee-color">Mee</span>にはフォロー機能も！<br>フォローし合うことでチャット機能を利用出来るようになる！</h4>
+  </div>
+  <!--特徴解説部分-->
+  <div class="feature mt-5 bg-light">
+    <h3><i class="fas fa-bookmark"></i><span class="mee-color">Mee</span>の特徴</h3>
+    <p class="step-text"><span class="mee-color">Mee</span>の特徴をご紹介！！</p>
+    <!--特徴紹介　一番上-->
+    <div class="feature-about mt-5">
+      <!--特徴タイトル・画像-->
+      <div class="col-12 col-sm-10 col-md-6 col-lg-5">
+        <h4><i class="fas fa-check-circle"></i> 完全無料でご利用いただけます！</h4>
+        <div class="feature-image1"></div>
+      </div>
+      <!--特徴　説明文-->
+      <div class="col-12 col-sm-10 col-md-6 col-lg-5">
+        <p class="feature-about-text"><span class="mee-color">Mee</span>は一切料金がかからず利用する事ができます！心置きなく利用して下さい！</p>
+      </div>
+    </div>
+
+    <!--特徴紹介　真ん中-->
+    <div class="feature-about mt-5">
+      <!--特徴　説明文-->
+      <div class="col-12 col-sm-10 col-md-6 col-lg-6 feature-text">
+        <p class="feature-about-text">色々な目的を持って利用しているユーザーがたくさん！  必ずあなたにピッタリの方と繋がる事ができます！</p>
+      </div>
+      <!--特徴タイトル・画像-->
+      <div class="col-12 col-sm-10 col-md-6 col-lg-5 feature-image-center">
+        <h4><i class="fas fa-check-circle"></i> いろんな人と話し合える！！</h4>
+        <div class="feature-image2"></div>
+      </div>
+    </div>
+
+    <!--特徴紹介　一番下-->
+    <div class="feature-about mt-5">
+      <!--特徴タイトル・画像-->
+      <div class="col-12 col-sm-10 col-md-6 col-lg-5">
+        <h4><i class="fas fa-check-circle"></i> ニックネーム制を導入！</h4>
+        <div class="feature-image3"></div>
+      </div>
+      <!--特徴　説明文-->
+      <div class="col-12 col-sm-10 col-md-6 col-lg-5">
+        <p class="feature-about-text">サイト内で利用する際は、ニックネームの登録をお願いしております！<br>
+        (登録時に本名(性・名)を記入して頂きますが、サイト内に表示されることはありません)</p>
+      </div>
+    </div>
+  </div>
+  <!--新規登録の部分-->
+  <div class="new-register row">
+    <div class="register-image col-sm-9 col-lg-5 pb-4">
+      <div class="new-register-image1 mx-auto"></div>
+    </div>
+    <div class="col-sm-12 col-lg-5 text-center mt-1 mb-3">
+      <% if user_signed_in? %>
+        <h2>登録ありがとうございます！</h2>
+        <%= link_to '投稿一覧ページへGO!', posts_path, class: 'btn btn-info btn-lg mb-2' %>
+      <% else %>
+        <h2>今すぐかんたん新規登録！！</h2>
+        <%= link_to 'さっそく始めてみる！！', new_user_registration_path, class: 'btn btn-info btn-lg mb-2' %>
+      <% end %>
+    </div>
+  </div>
+</div>

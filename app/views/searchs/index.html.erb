@@ -1,2 +1,35 @@
-<h1>Searchs#index</h1>
-<p>Find me in app/views/searchs/index.html.erb</p>
+<% provide(:title, "検索結果")%>
+<div class="searchs mt-4">
+  <div class="search container">
+    <!--@contentが空かどうかで処理分岐-->
+    <% if @content.blank? %>
+      <!--検索内容を入力していなかったら-->
+      <div class="col-12 text-center">
+        <h3 class="search-text">検索内容を入力して下さい！</h3>
+        <div class="search-image1 mx-auto"></div>
+      </div>
+    <% else %>
+      <% if @results.blank? %>
+        <!--検索内容にヒットしなかったら-->
+        <div class="col-md-12 text-center">
+          <h3>"<%= @content %>"の検索結果</h3>
+          <h4>検索内容にヒットしませんでした！ もう一度入力して下さい！</h4>
+          <div class="search-image2 mx-auto"></div>
+        </div>
+      <% else %>
+        <!--検索内容にヒットしたら-->
+        <h3>"<%= @content %>"の検索結果</h3>
+        <div class="row">
+          <% if @model == 'user'%>
+            <!--ユーザー側の検索結果-->
+            <%= render 'searchs/search_user', content: @content, results: @results %>
+          <% elsif @model == 'post' %>
+            <!--投稿側の検索結果-->
+            <%= render 'searchs/search_post', content: @content, results: @results %>
+          <% end %>
+        </div>
+        <%= paginate @results %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

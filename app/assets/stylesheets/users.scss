@@ -1,3 +1,107 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 退会確認画面
+.withdrawal {
+  height: 500px;
+}
+// 新規登録後の案内画面
+.explanation-lists {
+  justify-content: center;
+  align-items: center;
+  .explanations-list {
+    border: 4px solid black;
+  }
+  .explanation-text {
+    padding-left: 23px;
+    font-size: 17px;
+  }
+  .charm-color {
+    color: #fd95e7;
+    text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
+  }
+  .active-color {
+    color: #fcff24;
+    text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
+  }
+  .first-post-color {
+    color: #ff8126;
+    text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
+  }
+  .explanation-image {
+    height: 430px;
+    width: 390px;
+    background-image: image-url('7852_color.png');
+    background-size: cover;
+  }
+}
+// レスポンシブデザイン
+// タブレット横置き
+@media screen and (max-width:1024px) {
+ .user-edit {
+   padding-top: 100px;
+   padding-bottom: 140px;
+ }
+ .withdrawal {
+    padding-top: 100px;
+    height: 1040px;
+  }
+  .withdrawal-image {
+    margin-top: 110px;
+    height: 700px;
+    width: 550px;
+    background-image: image-url('1643_color.png');
+    background-size: cover;
+  }
+  .explanation-lists {
+    margin-top: 55px;
+    flex-direction: column;
+    .explanation-image {
+      height: 430px;
+      width: 430px;
+    }
+  }
+}
+// タブレット縦置き
+@media screen and (max-width:768px) {
+  .login-page {
+    height: 650px;
+  }
+  .withdrawal {
+    height: 700px;
+  }
+  .withdrawal-image {
+    margin-top: 110px;
+    height: 480px;
+    width: 350px;
+    background-image: image-url('1643_color.png');
+    background-size: cover;
+  }
+  .explanation-lists {
+    .explanation-image {
+      margin: 0 auto;
+      height: 330px;
+      width: 330px;
+    }
+  }
+}
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .user-edit {
+   padding-top: 30px;
+   padding-bottom: 30px;
+  }
+  .login-page {
+    height: 450px;
+  }
+  .withdrawal {
+    height: 700px;
+  }
+  .explanation-lists {
+    .explanation-image {
+      height: 330px;
+      width: 310px;
+    }
+  }
+}

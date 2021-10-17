@@ -1,0 +1,31 @@
+<h3 class="fas fa-thumbs-up mt-2"> いいね一覧</h3>
+<%= paginate likes %>
+<table class="table mt-3">
+  <thead class="thead-dark">
+    <tr>
+      <th></th>
+      <th>タイトル</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% likes.each do |like|%>
+    <tr>
+      <!--投稿詳細ページへのリンク(画像)-->
+      <td>
+        <%= link_to post_path(like.post.id) do %>
+          <%= attachment_image_tag like.post, :image, size: '50x50', format: 'jpeg', fallback: 'no_image2.jpeg', class: 'rounded-circle' %>
+        <% end %>
+      </td>
+      <!--投稿詳細ページへのリンク(投稿タイトル)-->
+      <td>
+        <%= link_to like.post.title, post_path(like.post.id), class: 'text-decoration-none text-break text-dark' %>
+      </td>
+      <td id="like_btn_<%= like.post.id%>">
+        <!--いいねボタン(現在ログインしているユーザーのIDと等しければ表示)-->
+        <%= render 'likes/like_btn', post: like.post if current_user.id == like.user.id %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

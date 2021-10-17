@@ -1,2 +1,35 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<% provide(:title, "ユーザー編集")%>
+<div class="user-edit container my-5">
+  <div class="mee-user col-sm-10 col-lg-7 mx-auto mx-auto shadow p-5">
+    <h3><i class="fas fa-edit text-secondary"></i>編集ページ</h3>
+    <div>
+      <!--編集フォーム-->
+      <%= form_with model: @user, local: true do |f|%>
+        <!--ニックネーム-->
+        <div class="form-group pt-3">
+          <%= f.label :nickname, 'ニックネーム' %>
+          <%= f.text_field :nickname, class: 'form-control w-75' %>
+        </div>
+        <!--プロフ画像-->
+        <div class="form-group pt-3">
+          <%= f.label :image, '画像' %>
+          <%= f.attachment_field :image, class: 'form-control-file' %>
+        </div>
+        <!--プロフ文-->
+        <div class="form-group pt-3">
+          <%= f.label :introduction, 'プロフィール文' %>
+          <%= f.text_area :introduction, class: 'form-control', size: '30x10' %>
+        </div>
+        <!--更新ボタン-->
+        <div class="row mx-auto">
+          <div class="pt-4">
+            <%= f.submit '更新する', class: 'btn btn-outline-success' %>
+          </div>
+          <div class="ml-auto pt-4">
+            <%= link_to '退会する？', user_withdrawal_path(current_user.id), class: 'btn btn-outline-danger' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

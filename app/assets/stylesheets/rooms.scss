@@ -1,3 +1,37 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chat-cautions{
+  justify-content: center;
+  .chat-texts {
+    border: 3px solid black;
+  }
+  .chat-image {
+    width: 300px;
+    height: 322px;
+    background-image: image-url('7852_color.png');
+    background-size: cover;
+  }
+  .chat-exsample {
+    font-size: 20px;
+  }
+}
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width:1024px) {
+  .chat-cautions{
+    padding-top: 153px;
+    flex-direction: column
+  }
+  .chat-image {
+    margin-left: auto;
+  }
+}
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .chat-cautions{
+    padding-top: 30px;
+  }
+}

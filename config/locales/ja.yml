@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      room: チャットルーム
+      post: 投稿
+      post_comment: コメント
+      notification: 通知
+      message: チャットメッセージ
+      like: いいね
+      genre: ジャンル
+      entry: エントリー
+      relationship: フォロー
+    attributes:
+       post:
+         title: タイトル
+         body: 本文
+         image: 画像
+       post_comment:
+         comment: コメント

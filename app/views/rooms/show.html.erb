@@ -1,0 +1,29 @@
+<!--チャット部分-->
+<% provide(:title, "#{@another_entry.user.nickname}さんとのチャットルーム")%>
+<div class="container chat-room mt-5">
+  <h3><%= @another_entry.user.nickname %>さんとのチャットルーム</h3>
+  <div id="chat_message_<%= @room.id %>" class="line-bc col-md-12">
+    <%= render 'messages/message', messages: @messages %>
+  </div>
+  <div class="new-chat-message form-group">
+    <%= form_with model: @message, remote: true do |f| %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.text_field :body, :placeholder => "Enterで送信", class: 'form-control' %>
+      <% f.submit %>
+    <% end %>
+  </div>
+  <!--使用上の注意点部分-->
+  <div class="row chat-cautions">
+    <!--注意点テキスト-->
+    <div class="chat-texts mt-3">
+      <h4 class="font-weight-bold mt-4 pl-1">使用する上で…</h4>
+      <ol>
+        <li class="chat-exsample my-5">利用している方が不快に思わないメッセージを送りましょう！</li>
+        <li class="chat-exsample my-5">メッセージは必ず入力しましょう！(空白だと送信されません)</li>
+        <li class="chat-exsample">楽しくチャット機能を利用して下さい！！</li>
+      </ol>
+    </div>
+    <!--画像-->
+    <div class="chat-image mt-5"></div>
+  </div>
+</div>
