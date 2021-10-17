@@ -68,3 +68,8 @@ gem 'rails-i18n', '~> 5.1'
 gem 'cancancan'
 # 管理者機能を作成してくれるGem
 gem 'rails_admin'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end

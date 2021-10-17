@@ -11,13 +11,13 @@
   .search-image1 {
     height: 700px;
     width: 500px;
-    background-image: url('8463_color.png');
+    background-image: image-url('8463_color.png');
     background-size: cover;
   }
   .search-image2 {
     height: 670px;
     width: 450px;
-    background-image: url('1643_color.png');
+    background-image: image-url('1643_color.png');
     background-size: cover;
   }
 }
@@ -35,14 +35,10 @@
     .search-image1 {
       height: 500px;
       width: 300px;
-      background-image: url('8463_color.png');
-      background-size: cover;
     }
     .search-image2 {
       height: 580px;
       width: 380px;
-      background-image: url('1643_color.png');
-      background-size: cover;
     }
   }
 }
