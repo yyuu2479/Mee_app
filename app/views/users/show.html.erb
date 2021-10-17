@@ -5,7 +5,7 @@
     <div class="col-md-6 col-lg-4 mx-auto">
       <h3 class="mt-2"><i class="fas fa-user-edit text-secondary"></i> ユーザー詳細ページ</h3>
       <div class="card border-dark">
-        <%= attachment_image_tag @user, :image, size: '350x350', format: 'jpeg',  class: 'card-img-top' %>
+        <%= attachment_image_tag @user, :image, size: '350x350', format: 'jpeg', fallback: 'no_image2',class: 'card-img-top' %>
         <!--ヘッダー部分-->
         <p class="card-header"><%= @user.nickname %></p>
         <!--メイン部分-->

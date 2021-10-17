@@ -7,7 +7,7 @@
         <!--ユーザー詳細ページへのリンク-->
         <%= link_to user_path(mutual_follow), class: 'text-decoration-none' do%>
           <!--プロフ画像-->
-          <%= attachment_image_tag mutual_follow, :image, size: '150x150', format: 'jpeg' %>
+          <%= attachment_image_tag mutual_follow, :image, size: '150x150', format: 'jpeg', fallback: 'no_image2' %>
           <!--ユーザー名(ニックネーム)-->
           <p class="text-dark"><%= mutual_follow.nickname %></p>
         <% end %>
