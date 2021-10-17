@@ -9,7 +9,7 @@
     <div class="balloon6 text-left">
       <div class="faceicon d-inline-block">
         <%= link_to user_path(message.user.id) do%>
-          <%= attachment_image_tag message.user, :image, size: '45x45', format: 'jpeg',fallback: 'no_image2' class: 'rounded-circle' %>
+          <%= attachment_image_tag message.user, :image, size: '45x45', format: 'jpeg',fallback: asset_path('no_image2'), class: 'rounded-circle' %>
         <% end %>
       </div>
       <div class="says d-inline-block">

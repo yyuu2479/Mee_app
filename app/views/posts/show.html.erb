@@ -5,7 +5,7 @@
     <div class="col-sm-7 col-lg-4 mx-auto">
       <h3 class="font-weight-bold"><i class="far fa-file text-secondary"></i> 投稿詳細ページ</h3>
       <div class="card border-dark">
-        <%= attachment_image_tag @post, :image, size: '320x320' ,format: 'jpeg',fallback: 'no_image2', fallback: 'no_image2', class: 'card-img-top'%>
+        <%= attachment_image_tag @post, :image, size: '320x320' ,format: 'jpeg', fallback: asset_path('no_image2'), class: 'card-img-top'%>
         <!--投稿タイトル-->
         <h5 class="card-header"><%= @post.title %></h5>
         <!--投稿本文-->
