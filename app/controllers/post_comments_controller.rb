@@ -1,6 +1,6 @@
 class PostCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_post_comment, only:[:edit, :destroy, :update]
+  before_action :correct_post_comment, only: [:edit, :destroy, :update]
 
   def new
     @post = Post.find(params[:post_id])
@@ -20,7 +20,7 @@ class PostCommentsController < ApplicationController
       # コメントしたらnotificationsテーブル(通知モデル)に保存
       @notification_post = @post_comment.post
       @notification_post.create_notification_comment(current_user, @post_comment.id)
-      
+
       redirect_to post_path(@post)
     else
       render :new

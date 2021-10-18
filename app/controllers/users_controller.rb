@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only:[:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     sort = params[:sort]
@@ -54,8 +54,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-
-
   private
 
   def user_params
@@ -67,5 +65,4 @@ class UsersController < ApplicationController
 
     redirect_to users_path unless user.id == current_user.id
   end
-
 end
