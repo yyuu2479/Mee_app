@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'
 # Use sqlite3 as the database for Active Record
@@ -42,6 +41,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # ロボコップ(コーディング規約に合っているか調べてくれるGem)
+  gem 'rubocop-airbnb'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -53,7 +54,6 @@ gem "refile-mini_magick"
 
 # bootstrapの適用、Ajax化の際など、アイコンを使うときに必要なGem
 gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 
 # ページング機能の際に使うGem

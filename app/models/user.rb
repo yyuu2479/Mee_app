@@ -40,22 +40,24 @@ class User < ApplicationRecord
 
   # フォロー作成メゾット
   def follow(user)
-    self.follower.create(followed_id: user.id)
+    follower.create(followed_id: user.id)
   end
 
   # フォロー削除メゾット
   def unfollow(user)
-    self.follower.find_by(followed_id: user.id).destroy
+    follower.find_by(followed_id: user.id).destroy
   end
 
   # フォロー確認メゾット
   def following_user?(user)
-    self.following_user.include?(user)
+    following_user.include?(user)
   end
+
   # 相互フォロー取得メゾット
   def mutual_follow
     following_user & follower_user
   end
+
   # フォロー通知作成メゾット
   def create_notification_follow(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
@@ -68,6 +70,7 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
   # 検索メゾット(User)
   def self.search_for(content, method)
     if method == 'perfect'
@@ -80,6 +83,7 @@ class User < ApplicationRecord
       User.where('nickname LIKE ?', '%' + content + '%').order(created_at: :desc)
     end
   end
+
   # ソートメゾット
   def self.sort_for(sort)
     if sort == 'new'

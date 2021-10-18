@@ -8,6 +8,7 @@ class Users::SessionsController < Devise::SessionsController
     flash[:notice] = "ゲストユーザーとしてログインしました！！"
     redirect_to user_path(user.id)
   end
+
   # ログイン後の遷移先
   def after_sign_in_path_for(resource)
     user_path(resource)

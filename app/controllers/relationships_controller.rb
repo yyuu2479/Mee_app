@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_follow, only:[:create, :destroy]
+  before_action :correct_follow, only: [:create, :destroy]
 
   def following
     @user = User.find(params[:user_id])
@@ -26,7 +26,7 @@ class RelationshipsController < ApplicationController
     @follow = current_user.follow(@user)
     # フォローしたらnotificationsテーブル(通知モデル)に保存
     @user.create_notification_follow(current_user)
-    
+
     @current_user_entry = Entry.where(user_id: current_user.id)
     @user_entry = Entry.where(user_id: @user.id)
     unless current_user.id == @user.id
@@ -43,7 +43,6 @@ class RelationshipsController < ApplicationController
         @entry = Entry.new
       end
     end
-    
   end
 
   def destroy
@@ -52,8 +51,8 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(@user)
   end
 
-
   private
+
   # 直打ち禁止メゾット
   def correct_follow
     @user = User.find(params[:user_id])
