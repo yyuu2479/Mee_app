@@ -23,17 +23,17 @@
 $(document).on('turbolinks:load', function(){
  $("#input-text").on("keyup", function() {
   // 入力文字数を受け取る
-   let countNum = $(this).val().length;
+   let count_num = $(this).val().length;
   // 最大入力文字数ー入力文字数
-   let nowCount = 350 - countNum;
+   let now_count = 350 - count_num;
   //入力文字数によって色を変えている 
-   if (countNum > 350) {
+   if (count_num > 350) {
       $("#counter").css("color","red");
     } else {
       $("#counter").css("color","black");
     }
   // 残り何文字入力できるか表示
-   $("#counter").text("残り"+nowCount+"文字");
+   $("#counter").text("残り"+now_count+"文字");
  });
 });
 
@@ -41,16 +41,16 @@ $(document).on('turbolinks:load', function(){
 $(document).on('turbolinks:load', function(){
  $("#input-text-comment").on("keyup", function() {
   // 入力文字数を受け取る
-   let countNum = $(this).val().length;
+   let count_num = $(this).val().length;
   // 最大入力文字数ー入力文字数
-   let nowCount = 120 - countNum;
+   let nowCount = 120 - count_num;
   //入力文字数によって色を変えている 
-   if (countNum > 120) {
+   if (count_num > 120) {
       $("#counter-comment").css("color","red");
     } else {
       $("#counter-comment").css("color","black");
     }
   // 残り何文字入力できるか表示
-   $("#counter-comment").text("残り"+nowCount+"文字");
+   $("#counter-comment").text("残り"+now_count+"文字");
  });
 });
