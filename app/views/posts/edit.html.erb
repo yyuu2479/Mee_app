@@ -16,8 +16,9 @@
       </div>
       <!--本文-->
       <div class="form-group">
-        <%= f.label :body, '投稿本文' %>
-        <%= f.text_area :body, class: 'form-control', size: '30x10' %>
+        <%= f.label :body, '投稿本文(350字まで)' %>
+        <%= f.text_area :body, class: 'form-control', id: 'input-text', size: '30x10' %>
+        <p class="text-right" id="counter">残り350文字</p>
       </div>
       <!--更新ボタン-->
       <div>

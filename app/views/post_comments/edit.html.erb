@@ -5,8 +5,9 @@
     <%= form_with model: [@post, @post_comment], local: true do |f|%>
       <!--コメント入力フォーム-->
       <div class="form-group">
-        <%= f.label :comment, 'コメント'%>
-        <%= f.text_area :comment, class: 'form-control', size: '30x5' %>
+        <%= f.label :comment, 'コメント(120文字まで)'%>
+        <%= f.text_area :comment, class: 'form-control', id: 'input-text-comment', size: '30x5' %>
+        <p class="text-right" id="counter-comment">残り120文字</p>
       </div>
       <!--投稿ボタン-->
       <div>

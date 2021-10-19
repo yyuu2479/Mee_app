@@ -17,8 +17,9 @@
         </div>
         <!--プロフ文-->
         <div class="form-group pt-3">
-          <%= f.label :introduction, 'プロフィール文' %>
-          <%= f.text_area :introduction, class: 'form-control', size: '30x10' %>
+          <%= f.label :introduction, 'プロフィール文(350字まで)' %>
+          <%= f.text_area :introduction, class: 'form-control', id: 'input-text', size: '30x10' %>
+          <p class="text-right" id="counter">残り350文字</p>
         </div>
         <!--更新ボタン-->
         <div class="row mx-auto">

@@ -2,12 +2,12 @@
 <div class="container mt-5">
   <div class="mee-post col-sm-10 col-lg-7 mx-auto shadow p-5">
     <h3>コメント投稿ページ</h3>
-    <%= render 'layouts/errors', model: @post_comment %>
     <%= form_with model: [@post, @post_comment], local: true do |f| %>
       <!--コメント入力フォーム-->
       <div class="form-group">
-        <%= f.label :comment, 'コメント'%>
-        <%= f.text_area :comment, class: 'form-control' ,:placeholder => "コメントを入力してください", size: '30x5' %>
+        <%= f.label :comment, 'コメント(120文字まで)'%>
+        <%= f.text_area :comment, class: 'form-control', id: 'input-text-comment', :placeholder => "コメントを入力してください", size: '30x5' %>
+        <p class="text-right" id="counter-comment">残り120文字</p>
       </div>
       <!--投稿-->
       <div>

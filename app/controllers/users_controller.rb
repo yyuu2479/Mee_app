@@ -38,9 +38,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    flash[:notice] = "更新が完了しました!"
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      flash[:notice] = "更新が完了しました!"
+      redirect_to user_path(@user)
+    else
+      flash[:alert] = "更新ができませんでした！"
+      render :edit
+    end
   end
 
   def withdrawal

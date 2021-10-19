@@ -42,7 +42,11 @@
           </tr>
           <tr>
             <th>自己紹介</th>
-            <td class="text-break text-monospace"><%= @user.introduction %></td>
+            <% if @user.introduction.blank? %>
+              <td class="text-break text-monospace">自己紹介を設定しよう！！</td>
+            <% else %>
+              <td class="text-break text-monospace"><%= @user.introduction %></td>
+            <% end %>
           </tr>
           <tr>
             <th>登録日時</th>

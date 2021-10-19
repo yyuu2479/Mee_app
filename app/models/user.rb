@@ -6,9 +6,10 @@ class User < ApplicationRecord
 
   attachment :image
 
-  validates :first_name, presence: true, length: { maximum: 15 }
-  validates :last_name, presence: true, length: { maximum: 15 }
-  validates :nickname, presence: true, length: { maximum: 10 }
+  validates :first_name, presence: true, length: { maximum: 20 }
+  validates :last_name, presence: true, length: { maximum: 20 }
+  validates :nickname, presence: true, length: { maximum: 20 }
+  validates :introduction, length: { maximum: 350 }
 
   # postモデルとのアソシエーション
   has_many :posts, dependent: :destroy

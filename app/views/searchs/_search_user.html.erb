@@ -8,7 +8,11 @@
         <p class="text-left text-body card-header"><%= user.nickname %></p>
       <% end %>
       <div class="card-body">
-        <p class="text-truncate card-text"><%= user.introduction %></p>
+        <% if user.introduction.blank? %>
+          <p class="text-truncate text-left card-text">自己紹介を設定しよう！！</p>
+        <% else %>
+          <p class="text-truncate text-left card-text"><%= user.introduction %></p>
+        <% end %>
         <!--登録日時-->
         <p class="text-right card-text"><%= time_ago_in_words(user.created_at).upcase %>前</p>
       </div>

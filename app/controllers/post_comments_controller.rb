@@ -20,9 +20,9 @@ class PostCommentsController < ApplicationController
       # コメントしたらnotificationsテーブル(通知モデル)に保存
       @notification_post = @post_comment.post
       @notification_post.create_notification_comment(current_user, @post_comment.id)
-
       redirect_to post_path(@post)
     else
+      flash[:alert] = "投稿できませんでした！"
       render :new
     end
   end
@@ -42,6 +42,7 @@ class PostCommentsController < ApplicationController
       flash[:notice] = "更新が完了しました！！"
       redirect_to post_path(@post)
     else
+      flash[:alert] = "更新ができませんでした！"
       render :edit
     end
   end
