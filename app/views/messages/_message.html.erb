@@ -4,6 +4,9 @@
       <div class="mycomment d-inline-block">
         <p><%= message.body %></p>
       </div>
+      <%= link_to room_message_path(room.id, message.id), method: :delete, remote: true do %>
+        <i class="fas fa-times text-danger"></i>
+      <% end %>
     </div>
   <% else %>
     <div class="balloon6 text-left">

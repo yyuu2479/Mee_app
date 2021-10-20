@@ -11,6 +11,13 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @room = Room.find(params[:room_id])
+    @messages = @room.messages
+    message = Message.find(params[:id])
+    message.destroy
+  end
+
   private
 
   def message_params
