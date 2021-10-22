@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_room, only: [:show]
 
   def show
     @room = Room.find(params[:id])
@@ -32,5 +33,13 @@ class RoomsController < ApplicationController
 
   def entry_params
     params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id)
+  end
+
+  def correct_room
+    room = Room.find(params[:id])
+    unless Entry.where(user_id: current_user, room_id: room.id)
+      flash[:alert] = "あなたのチャットルームではありません！"
+      redirect_to root_path
+    end
   end
 end

@@ -55,6 +55,9 @@ class PostCommentsController < ApplicationController
 
   def correct_post_comment
     post_comment = PostComment.find(params[:id])
-    redirect_to posts_path unless post_comment.user.id == current_user.id
+    unless post_comment.user.id == current_user.id
+      flash[:alert] = "あなたの編集ページではありません！"
+      redirect_to posts_path
+    end
   end
 end

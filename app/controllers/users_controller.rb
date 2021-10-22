@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
   def correct_user
     user = User.find(params[:id])
-
+    flash[:alert] = "あなたの編集ページではありません！"
     redirect_to users_path unless user.id == current_user.id
   end
 end
