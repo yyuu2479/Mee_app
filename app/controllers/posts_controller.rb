@@ -68,7 +68,9 @@ class PostsController < ApplicationController
 
   def correct_post
     post = Post.find(params[:id])
-    flash[:alert] = "あなたの編集ページではありません！"
-    redirect_to posts_path unless post.user.id == current_user.id
+    unless post.user.id == current_user.id
+      flash[:alert] = "あなたの編集ページではありません！"
+      redirect_to posts_path
+    end
   end
 end
