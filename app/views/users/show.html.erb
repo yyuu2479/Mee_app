@@ -1,65 +1,35 @@
 <% provide(:title, "ユーザー詳細&いいね一覧")%>
 <div class="container my-5">
   <div class="row">
-    <!--ユーザー詳細情報-->
     <div class="col-md-6 col-lg-4 mx-auto">
       <h3 class="mt-2"><i class="fas fa-user-edit text-secondary"></i> ユーザー詳細ページ</h3>
       <div class="card border-dark">
         <%= attachment_image_tag @user, :image, size: '350x350', format: 'jpeg', fallback: asset_path('no_image2.jpeg'), class: 'card-img-top' %>
-        <!--ヘッダー部分-->
         <p class="card-header"><%= @user.nickname %></p>
-        <!--メイン部分-->
         <div class="card-body">
           <p class="card-text d-inline-block"><%= link_to 'フォロー一覧', user_following_path(@user), class: "btn btn-primary" %></p>
           <p class="card-text d-inline-block"><%= link_to 'フォロワー一覧', user_follower_path(@user), class: "btn btn-primary" %></p>
           <p class="card-text"><%= link_to '相互フォロー一覧', user_mutual_follow_path(@user), class: "btn btn-primary" %></p>
         </div>
-        <!--フッダー部分-->
         <div class="card-footer text-center">
           <% if current_user == @user %>
-            <!--編集ボタン-->
             <%= link_to '編集する', edit_user_path(@user), class: "fas fa-edit btn btn-outline-success" %>
           <% else %>
-          <!--フォローボタン-->
             <div id="follow_<%= @user.id %>">
               <%= render 'relationships/follow_btn', user: @user, follow: @follow %>
             </div>
           <% end %>
-          <!--チャットルーム-->
           <div class="chat_<%= @user.id %>">
             <%= render 'rooms/chat_room', is_room: @is_room, room_id: @room_id, room: @room, entry: @entry, user: @user %>
           </div>
         </div>
       </div>
     </div>
-    <!--ユーザー詳細情報-->
+    <!--自己紹介部分-->
     <div class="col-md-12 col-lg-8 mt-5">
-      <table class="table table-bordered">
-        <tbody class="thead-dark">
-          <tr>
-            <th>ニックネーム</th>
-            <td class="text-break text-monospace"><%= @user.nickname %></td>
-          </tr>
-          <tr>
-            <th>自己紹介</th>
-            <% if @user.introduction.blank? %>
-              <td class="text-break text-monospace">自己紹介を設定しよう！！</td>
-            <% else %>
-              <td class="text-break text-monospace"><%= @user.introduction %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <th>登録日時</th>
-            <td class="text-break text-monospace"><%= @user.created_at.to_s(:datetime_jp) %></td>
-          </tr>
-          <tr>
-            <th>更新日時</th>
-            <td class="text-break text-monospace"><%= @user.updated_at.to_s(:datetime_jp) %></td>
-          </tr>
-        </tbody>
-      </table>
+      <%= render 'users/introduction', user: @user %>
     </div>
-    <!--いいね一覧-->
+    <!--いいね一覧部分-->
     <div id="likes_<%= @user.id%>" class="col-md-12 mt-3">
       <%= render 'likes/index', likes: @likes %>
     </div>

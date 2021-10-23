@@ -3,25 +3,20 @@
   <div class="mee-user col-sm-10 col-lg-7 mx-auto mx-auto shadow p-5">
     <h3><i class="fas fa-edit text-secondary"></i>編集ページ</h3>
     <div>
-      <!--編集フォーム-->
       <%= form_with model: @user, local: true do |f|%>
-        <!--ニックネーム-->
         <div class="form-group pt-3">
           <%= f.label :nickname, 'ニックネーム' %>
           <%= f.text_field :nickname, class: 'form-control w-75' %>
         </div>
-        <!--プロフ画像-->
         <div class="form-group pt-3">
           <%= f.label :image, '画像' %>
           <%= f.attachment_field :image, class: 'form-control-file' %>
         </div>
-        <!--プロフ文-->
         <div class="form-group pt-3">
           <%= f.label :introduction, 'プロフィール文(350字まで)' %>
           <%= f.text_area :introduction, class: 'form-control', id: 'input-text', size: '30x10' %>
           <p class="text-right" id="counter">残り350文字</p>
         </div>
-        <!--更新ボタン-->
         <div class="row mx-auto">
           <div class="pt-4">
             <%= f.submit '更新する', class: 'btn btn-outline-success' %>

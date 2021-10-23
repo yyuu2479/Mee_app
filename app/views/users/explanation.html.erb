@@ -1,10 +1,9 @@
+<!--会員登録後の設定手順-->
 <div class="explanations container pt-5">
   <div class="row explanation-lists">
-    <!--紹介文側-->
     <div class="explanations-list col-lg-8">
       <h2><%= current_user.nickname %> さん会員登録ありがとうございます！</h2>
       <h4 class="pl-3">登録後のおすすめ手順をご紹介します！！！</h4>
-      <!--自己紹介のススメ-->
       <div class="pl-4">
         <h5><i class="fas fa-check-circle"></i>自己紹介を設定してみよう</h5>
         <p class="explanation-text">
@@ -13,7 +12,6 @@
           ぜひとも設定しましょう！
         </p>
       </div>
-      <!--コメント・いいねのススメ-->
       <div class="pl-4">
         <h5><i class="fas fa-check-circle"></i>投稿にコメント・いいねしてみよう</h5>
         <p class="explanation-text">
@@ -21,7 +19,6 @@
           緊張するかもしれませんが、<span class="active-color">積極的</span>にやっていきましょう！
         </p>
       </div>
-      <!--投稿のススメ-->
       <div class="pl-4">
         <h5><i class="fas fa-check-circle"></i>投稿してみよう</h5>
         <p class="explanation-text">
@@ -29,12 +26,10 @@
           きっと多くの方がコメントしてくれるはずです！
         </p>
       </div>
-      <!--ユーザー詳細ページへ-->
       <div class="text-center mb-1">
         <%= link_to 'さぁMeeの世界へ！', user_path(current_user.id), class: "btn btn-primary btn-lg"%>
       </div>
     </div>
-  <!--案内画面の画像-->
     <div class="col-lg-3 mt-5">
       <div class="explanation-image"></div>
     </div>
