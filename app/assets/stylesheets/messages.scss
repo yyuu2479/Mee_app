@@ -1,6 +1,8 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 .line-bc {
   padding: 20px 10px;
   max-width: 450px;
@@ -8,7 +10,7 @@
   background: #7da4cd;
 }
 
-
+// 自分が送ったメッセージ
 .mycomment {
   margin: 10px 0;
   p {
@@ -20,14 +22,14 @@
     background: #30e852;
   }
 }
-
-.balloon6 {
+// メッセージ部分
+.message-display {
   width: 100%;
   margin: 10px 0;
   overflow: hidden;
 }
 
-.balloon6 .faceicon {
+.message-display .faceicon {
   margin-right: -40px;
   width: 40px;
   img {
@@ -36,6 +38,7 @@
   }
 }
 
+// チャット相手が送ったメッセージ
 .says {
   position: relative;
   margin: 0 0 0 50px;

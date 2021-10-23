@@ -2,21 +2,19 @@
 <div class="container mt-5">
   <div class="mee-post col-sm-10 col-lg-7 mx-auto shadow p-5">
     <h3>コメント投稿ページ</h3>
+    <!--コメント内容を送信するため-->
     <%= form_with model: [@post, @post_comment], local: true do |f| %>
-      <!--コメント入力フォーム-->
       <div class="form-group">
         <%= f.label :comment, 'コメント(120文字まで)'%>
         <%= f.text_area :comment, class: 'form-control', id: 'input-text-comment', :placeholder => "コメントを入力してください", size: '30x5' %>
         <p class="text-right" id="counter-comment">残り120文字</p>
       </div>
-      <!--投稿-->
       <div>
         <%= f.submit '投稿する', class: 'btn btn-outline-success' %>
       </div>
     <% end %>
   </div>
   <div class="row comment-cautions mt-4">
-    <!--注意点テキスト-->
     <div class="comment-texts mt-3 p-1">
       <h4 class="font-weight-bold mt-4 pl-1">使用する上で…</h4>
       <ol>
@@ -25,7 +23,6 @@
         <li class="comment-exsample">利用していただいてありがとうございます！</li>
       </ol>
     </div>
-    <!--画像-->
     <div class="comment-image mt-5"></div>
   </div>
 </div>

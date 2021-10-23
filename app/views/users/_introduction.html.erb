@@ -6,6 +6,7 @@
     </tr>
     <tr>
       <th>自己紹介</th>
+      <!--自己紹介が設定されていなかった場合で条件分岐-->
       <% if @user.introduction.blank? %>
         <td class="text-break text-monospace">自己紹介を設定しよう！！</td>
       <% else %>

@@ -2,17 +2,14 @@
 <div class="comment-edit container my-5">
   <div class="mee-post col-sm-10 col-lg-6 mx-auto  shadow p-5">
     <h3>コメント編集ページ</h3>
+    <!--編集したコメント内容を送信するためのフォーム-->
     <%= form_with model: [@post, @post_comment], local: true do |f|%>
-      <!--コメント入力フォーム-->
       <div class="form-group">
         <%= f.label :comment, 'コメント(120文字まで)'%>
         <%= f.text_area :comment, class: 'form-control', id: 'input-text-comment', size: '30x5' %>
         <p class="text-right" id="counter-comment">残り120文字</p>
       </div>
-      <!--投稿ボタン-->
-      <div>
-        <%= f.submit '更新する', class: 'btn btn-outline-success' %>
-      </div>
+      <%= f.submit '更新する', class: 'btn btn-outline-success' %>
     <% end %>
   </div>
 </div>

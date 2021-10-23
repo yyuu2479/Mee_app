@@ -6,29 +6,27 @@
     </p>
     <!--notificationsテーブル(通知モデル)のactionカラムの値で処理を分岐-->
     <% if notification.action == "follow" %>
-      <!--フォロー通知-->
       <p class="d-inline-block">あなたをフォローしました！</p>
     <% elsif notification.action == "like"%>
-      <!--いいね通知-->
       <p class="d-inline-block">
         <%= link_to 'あなたの投稿', post_path(notification.post.id),
         class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>にいいねしました！
       </p>
     <% elsif notification.action == "post_comment" %>
+      <!--投稿したユーザーのIDと通知を送るユーザーのIDが等しかった場合-->
       <% if notification.post.user.id == notification.visited.id%>
-        <!--コメント通知(自分の投稿にコメントが付いた時の通知)-->
+        <!--等しかった場合、あなたの投稿にコメントしたと通知-->
         <p class="d-inline-block">
           <%= link_to 'あなたの投稿', post_path(notification.post.id),
           class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>にコメントしました！
         </p>
       <% else %>
-        <!--コメント通知(自分がコメントした投稿に新しく誰かがコメントを送信した場合)-->
+        <!--自分がコメントした投稿に新しくコメントがついた場合の通知-->
         <p class="d-inline-block">
           <%= link_to notification.post.user.nickname, post_path(notification.post.id),
           class: 'you-post text-decoration-none font-weight-bold text-dark rounded-sm' %>さんの投稿にコメントしました！
         </p>
       <% end %>
-      <!--投稿されたコメント表示-->
       <div class="opacity">
         <%= notification.post_comment.comment %>
       </div>

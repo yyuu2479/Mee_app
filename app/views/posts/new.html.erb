@@ -3,31 +3,24 @@
   <div class="mee-post col-sm-10 col-lg-6 mx-auto shadow p-5">
     <h3 class="font-weight-bold"><i class="fas fa-file-medical text-secondary"></i> 新規投稿ページ</h3>
     <%= form_with model: @post, local: true do |f|%>
-      <!--投稿タイトル-->
       <div class="form-group">
         <%= f.label :title, 'タイトル'%>
         <%= f.text_field :title, class: 'form-control w-75', :placeholder => "投稿タイトルを入力してください" %>
       </div>
-      <!--投稿画像-->
       <div class="form-group">
         <%= f.label :image, '投稿画像'%>
         <%= f.attachment_field :image, class: 'form-control-file' %>
       </div>
-      <!--ジャンルセレクト-->
       <div class="form-group">
         <%= f.label :genre_id, 'ジャンル選択', class: 'd-block' %>
         <%= f.collection_select :genre_id, Genre.all, :id, :name, class: 'form-control'%>
       </div>
-      <!--投稿本文-->
       <div class="form-group">
         <%= f.label :body, '投稿本文(350字まで)'%>
         <%= f.text_area :body, class: 'form-control', id: 'input-text', :placeholder => "投稿内容を入力してください", size: '30x10' %>
         <p class="text-right" id="counter">残り350文字</p>
       </div>
-      <!--投稿ボタン-->
-      <div>
-        <%= f.submit '投稿する', class: 'btn btn-outline-success' %>
-      </div>
+      <%= f.submit '投稿する', class: 'btn btn-outline-success' %>
     <% end %>
   </div>
 </div>

@@ -1,7 +1,6 @@
+<!--ログインしているユーザーがそのユーザーをフォローしているかで表示するボタンを切り替え-->
 <% if current_user.following_user?(user) %>
-  <!--フォロー解除ボタン-->
   <%= link_to ' フォロー解除', user_relationship_path(user.id, follow.id), method: :delete, remote: true, class: 'fas fa-user-minus btn btn-info p-2 mb-1'%>
 <% else %>
-  <!--フォロー作成ボタン-->
   <%= link_to ' フォローする', user_relationships_path(user.id), method: :post, remote: true, class: 'fas fa-user-plus btn btn-outline-info p-2 mb-1'%>
 <% end %>

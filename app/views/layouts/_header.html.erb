@@ -1,20 +1,18 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <!--サイトロゴ-->
       <%= link_to root_path, class: 'site-logo col-12 col-md-6 col-lg-3' do %>
         <%= image_tag 'logo.png', size: '100x100'%>
       <% end%>
-      <!--ナビゲーションメニュー-->
+      <!--画面サイズを小さくなった場合、ナビゲーションリンクを表示-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!--ナビゲーションリンク-->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="ml-auto">
           <ul class="navbar-nav nav-lists">
+            <!--ログインしているかどうかでヘッダーの内容を変更-->
             <% if user_signed_in? %>
-              <!--ログイン後ヘッダー-->
               <%= link_to user_path(current_user), class: 'nav-link'  do %>
                 <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: asset_path('no_image2.jpeg'), size: '50x50', class: 'rounded-circle' %>
               <% end %>
@@ -24,8 +22,8 @@
               <li class="nav-item">
                 <%= link_to ' 投稿一覧', posts_path, class: 'fas fa-list header-posts nav-link font-weight-bold text-decoration-none px-2'%>
               </li>
-              <!--通知あったら円が右下にあるようにif文で条件分岐させてある-->
               <%= link_to  notifications_path, class: 'header-notification nav-list nav-link text-decoration-none' do %>
+                <!--通知あったら円が右下にあるようにif文で条件分岐させてある-->
                 <% if unchecked_notifications.any? %>
                   <p class="n-circle rounded-circle px-1"><%= current_user.visiteds.count %></p>
                 <% end %>
@@ -36,7 +34,6 @@
                 class: 'fas fa-sign-out-alt header-sign_out nav-link text-decoration-none px-2'%>
               </li>
             <% else %>
-              <!--ログイン前ヘッダー-->
               <li class="nav-item">
                 <%= link_to ' 新規登録', new_user_registration_path, class: 'fas fa-user header-new nav-link text-decoration-none px-3'%>
               </li>
@@ -46,7 +43,7 @@
             <% end %>
           </ul>
         </div>
-        <!--検索フォーム-->
+        <!--ログインしていれば検索フォーム表示-->
         <% if user_signed_in? %>
           <div class="form-group mt-1">
             <%= form_with url: searchs_path, method: :get, local: true do |f| %>

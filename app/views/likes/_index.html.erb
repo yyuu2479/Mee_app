@@ -9,20 +9,18 @@
     </tr>
   </thead>
   <tbody>
+    <!--いいねしている投稿を一覧表示するためeach文を使用-->
     <% likes.each do |like|%>
     <tr>
-      <!--投稿詳細ページへのリンク(画像)-->
       <td>
         <%= link_to post_path(like.post.id) do %>
           <%= attachment_image_tag like.post, :image, size: '50x50', format: 'jpeg', fallback: asset_path('no_image2.jpeg'),  class: 'rounded-circle' %>
         <% end %>
       </td>
-      <!--投稿詳細ページへのリンク(投稿タイトル)-->
       <td>
         <%= link_to like.post.title, post_path(like.post.id), class: 'text-decoration-none text-break text-dark' %>
       </td>
       <td id="like_btn_<%= like.post.id%>">
-        <!--いいねボタン(現在ログインしているユーザーのIDと等しければ表示)-->
         <%= render 'likes/like_btn', post: like.post if current_user.id == like.user.id %>
       </td>
     </tr>
