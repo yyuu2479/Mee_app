@@ -4,7 +4,7 @@
 
 // 通知一覧関連のCSS
 .notifications {
-  height: 800px;
+  height: 900px;
   .who-nickname {
     padding: 2px;
     background-color: #00ffff;
@@ -27,9 +27,15 @@
 
 
 // レスポンシブデザイン
-// タブレット
-@media screen and (max-width:1024px) {
+// タブレット縦置き
+@media screen and (max-width:768px) {
   .notifications {
-    height: 1000px;
+    height: 900px;
+  }
+}
+// スマートフォンサイズ
+@media screen and (max-width:425px) {
+  .notifications {
+    height: 1300px;
   }
 }

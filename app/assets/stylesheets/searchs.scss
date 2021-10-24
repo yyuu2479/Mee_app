@@ -23,6 +23,25 @@
 }
 
 // レスポンシブデザイン
+// タブレット
+@media screen and (max-width:1024px) {
+  .searchs {
+    .search-text {
+      font-size: 30px;
+      position: relative;
+      top: 12rem;
+      left: 7px;
+    }
+    .search-image1 {
+      height: 1100px;
+      width: 600px;
+    }
+    .search-image2 {
+      height: 670px;
+      width: 450px;
+    }
+  }
+}
 // スマートフォンサイズ
 @media screen and (max-width:425px) {
   .searchs {

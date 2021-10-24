@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <%= link_to root_path, class: 'site-logo col-12 col-md-6 col-lg-3' do %>
+      <%= link_to root_path, class: 'site-logo col-12 col-md-6 col-lg-1' do %>
         <%= image_tag 'logo.png', size: '100x100'%>
       <% end%>
       <!--画面サイズを小さくなった場合、ナビゲーションリンクを表示-->
@@ -25,7 +25,7 @@
               <%= link_to  notifications_path, class: 'header-notification nav-list nav-link text-decoration-none' do %>
                 <!--通知あったら円が右下にあるようにif文で条件分岐させてある-->
                 <% if unchecked_notifications.any? %>
-                  <p class="n-circle rounded-circle px-1"><%= current_user.visiteds.count %></p>
+                  <p class="n-circle rounded-circle px-1"><%= unchecked_notifications.count %></p>
                 <% end %>
                   <li class="far fa-bell header-notifications nav-item px-2 font-weight-bold"> 通知一覧</li>
               <% end %>
