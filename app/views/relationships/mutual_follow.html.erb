@@ -1,6 +1,6 @@
 <% provide(:title, "相互フォロー一覧")%>
 <div class="container my-5 relationships">
-  <h3 class="font-weight-bold">相互フォロー一覧</h3>
+  <h3 class="font-weight-bold">相互フォロー一覧 (<%= @mutual_follows.count %>人)</h3>
   <div class="row">
     <% @mutual_follows.each do |mutual_follow| %>
       <div class="col-6 col-md-3 text-center">

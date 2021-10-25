@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   end
 
   def post_update_params
-    params.require(:post).permit(:title, :image, :body)
+    params.require(:post).permit(:title, :image, :genre_id, :body)
   end
 
   def correct_post

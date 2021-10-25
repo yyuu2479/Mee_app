@@ -17,7 +17,7 @@
               <%= render 'likes/like_btn', post: post  %>
             </div>
             <p class="text-truncate card-subtitle mb-2 text-muted"><%= post.genre.name %></p>
-            <p class="text-break card-text"><%= post.body %></p>
+            <p class="text-break card-text"><%= safe_join(post.body.split("\n"), tag(:br)) %></p>
             <p class="text-right"><%= time_ago_in_words(post.created_at).upcase %>前</p>
             <%= link_to post_path(post.id), class: 'text-decoration-none' do %>
               <p class="font-weight-bold text-dark text-right card-text">詳細ページへ！<i class="fas fa-angle-double-right"></i></p>

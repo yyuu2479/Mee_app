@@ -8,5 +8,5 @@ class Notification < ApplicationRecord
   belongs_to :room, optional: true
   belongs_to :message, optional: true
 
-  scope :sorted, -> { order(created_at: :desc) }
+  scope :sort_desc, -> { order(created_at: :desc) }
 end

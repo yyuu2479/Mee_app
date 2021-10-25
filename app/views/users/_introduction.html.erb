@@ -10,7 +10,7 @@
       <% if @user.introduction.blank? %>
         <td class="text-break text-monospace">自己紹介を設定しよう！！</td>
       <% else %>
-        <td class="text-break text-monospace"><%= user.introduction %></td>
+        <td class="text-break text-monospace"><%= safe_join(user.introduction.split("\n"), tag(:br)) %></td>
       <% end %>
     </tr>
     <tr>

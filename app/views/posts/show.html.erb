@@ -14,7 +14,7 @@
             <%= render 'likes/like_btn', post: @post, user: current_user %>
           </div>
           <p class="text-truncate card-subtitle mb-2 text-muted"><%= @post.genre.name %></p>
-          <p class="card-text text-break"><%= @post.body %></p>
+          <p class="card-text text-break"><%=safe_join(@post.body.split("\n"), tag(:br)) %></p>
           <p class="card-text text-right"><%= @post.created_at.to_s(:datetime_jp) %></p>
         </div>
         <% if current_user.id == @post.user.id%>
