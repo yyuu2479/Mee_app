@@ -6,7 +6,6 @@
     <%= render 'messages/message', messages: @messages, room: @room %>
   </div>
   <%= form_with model: [@room, @message], remote: true do |f| %>
-    <%= f.hidden_field :room_id, value: @room.id %>
     <div class="form-group row pt-2">
       <div class="col-9 col-sm-11">
         <%= f.text_area :body, :placeholder => "メッセージを入力してください！", class: 'form-control' %>
