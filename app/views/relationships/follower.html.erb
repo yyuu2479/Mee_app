@@ -1,6 +1,6 @@
 <% provide(:title, "フォロワ一覧")%>
 <div class="container my-5 relationships">
-  <h3 class="font-weight-bold">フォロワー一覧</h3>
+  <h3 class="font-weight-bold">フォロワー一覧 (<%= @followers.count %>フォロワー)</h3>
   <div class="row">
     <% @followers.each do |follower|%>
       <div class="col-6 col-md-3 text-center">

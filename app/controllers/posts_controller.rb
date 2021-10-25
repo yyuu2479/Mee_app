@@ -7,11 +7,13 @@ class PostsController < ApplicationController
     genre = params[:genre]
     # ソートする内容によって処理を分岐させてます
     if sort == 'new' && genre.present?
-      @posts = Post.sort_new_genre(sort, genre).page(params[:page]).per(9)
+      @posts = Kaminari.paginate_array(Post.sort_new_genre(sort, genre)).page(params[:page]).per(15)
     elsif sort == 'old' && genre.present?
-      @posts = Post.sort_old_genre(sort, genre).page(params[:page]).per(9)
+      @posts = Kaminari.paginate_array(Post.sort_old_genre(sort, genre)).page(params[:page]).per(15)
+    elsif sort.present? && genre.blank?
+      @posts = Kaminari.paginate_array(Post.sort_for(sort)).page(params[:page]).per(15)
     else
-      @posts = Post.sort_for(sort).page(params[:page]).per(9)
+      @posts = Kaminari.paginate_array(Post.all.reverse_order).page(params[:page]).per(15)
     end
   end
 
@@ -63,7 +65,7 @@ class PostsController < ApplicationController
   end
 
   def post_update_params
-    params.require(:post).permit(:title, :image, :body)
+    params.require(:post).permit(:title, :image, :genre_id, :body)
   end
 
   def correct_post

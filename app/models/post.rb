@@ -75,8 +75,6 @@ class Post < ApplicationRecord
       Post.order(created_at: :desc)
     elsif sort == 'old'
       Post.order(created_at: :asc)
-    else
-      Post.order(created_at: :desc)
     end
   end
 

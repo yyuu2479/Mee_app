@@ -3,8 +3,12 @@
   <h3><i class="fas fa-users text-secondary"></i> ユーザー一覧</h3>
   <div class="form-group">
     <%= form_with url: users_path, method: :get, remote: true do |f| %>
-      <%= f.select :sort, options_for_select({'登録日時が新しい順'=>'new', '登録日時が古い順'=>'old'}), class: 'form-control' %>
+    <div class="row">
+      <div class="col-6 col-md-3">
+        <%= f.select :sort, options_for_select({'登録日時が新しい順'=>'new', '登録日時が古い順'=>'old'}), { include_blank: '選択してください'}, class: 'form-control' %>
+      </div>
       <%= f.submit '検索', class: 'btn btn-light' %>
+    </div>
     <% end %>
   </div>
   <div id="users_index" class="row">

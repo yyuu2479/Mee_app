@@ -6,7 +6,7 @@
       <div class="card border-dark">
         <%= attachment_image_tag @user, :image, size: '350x350', format: 'jpeg', fallback: asset_path('no_image2.jpeg'), class: 'card-img-top' %>
         <p class="card-header"><%= @user.nickname %></p>
-        <div class="card-body">
+        <div class="card-body text-center">
           <p class="card-text d-inline-block"><%= link_to 'フォロー一覧', user_following_path(@user), class: "btn btn-primary" %></p>
           <p class="card-text d-inline-block"><%= link_to 'フォロワー一覧', user_follower_path(@user), class: "btn btn-primary" %></p>
           <p class="card-text"><%= link_to '相互フォロー一覧', user_mutual_follow_path(@user), class: "btn btn-primary" %></p>

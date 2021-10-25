@@ -1,5 +1,5 @@
 <!--投稿を一覧で表示するためeach文を使用-->
-<% @posts.each do |post|%>
+<% posts.each do |post|%>
   <div class="col-lg-12 my-2">
     <div class="card border-dark">
       <div class="row no-gutters">
@@ -18,7 +18,7 @@
               <%= render 'likes/like_btn', post: post, user: current_user %>
             </div>
             <p class="text-truncate card-subtitle mb-2 text-muted"><%= post.genre.name %></p>
-            <p class="text-break card-text"><%= post.body %></p>
+            <p class="text-break card-text"><%= safe_join(post.body.split("\n"), tag(:br)) %></p>
             <p class="text-right"><%= time_ago_in_words(post.created_at).upcase %>前</p>
             <%= link_to post_path(post.id), class: 'text-decoration-none' do %>
               <p class="font-weight-bold text-dark text-right card-text">詳細ページへ！<i class="fas fa-angle-double-right"></i></p>
