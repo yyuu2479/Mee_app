@@ -26,4 +26,5 @@
 https://docs.google.com/spreadsheets/d/1JIKrrLIDg4l8e_K9Gf3ELgxnmuX5sFx62ghOC43_gzY/edit?usp=sharing
 
 ## 使用素材
-イラスト画像: ソコスト 商用可・フリーのイラスト素材集
+イラスト画像: [ソコスト 商用可・フリーのイラスト素材集](https://soco-st.com/)
+フリー画像：[O-DAN](https://o-dan.net/ja/)
