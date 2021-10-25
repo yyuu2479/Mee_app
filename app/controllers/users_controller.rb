@@ -69,6 +69,6 @@ class UsersController < ApplicationController
     unless user.id == current_user.id
       flash[:alert] = "あなたの編集ページではありません！"
       redirect_to users_path
-    end 
+    end
   end
 end
