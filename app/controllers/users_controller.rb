@@ -53,6 +53,14 @@ class UsersController < ApplicationController
 
   def destroy
     user = User.find(params[:id])
+    entries = Entry.where(user_id: user.id)
+    # 退会ユーザーがチャットルームを作成していた場合、退会と同時にチャットルームを削除
+    # entriesに値がある場合のみ、処理を実行
+    if entries.present?
+      entries.each do |entry|
+        entry.room.destroy
+      end
+    end
     user.destroy
     flash[:notice] = "退会しました！ またのご利用をお待ちしております！！"
     redirect_to root_path
@@ -67,7 +75,7 @@ class UsersController < ApplicationController
   def correct_user
     user = User.find(params[:id])
     unless user.id == current_user.id
-      flash[:alert] = "あなたの編集ページではありません！"
+      flash[:alert] = "権限がありません！"
       redirect_to users_path
     end
   end
