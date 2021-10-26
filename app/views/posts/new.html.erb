@@ -4,7 +4,7 @@
     <h3 class="font-weight-bold"><i class="fas fa-file-medical text-secondary"></i> 新規投稿ページ</h3>
     <%= form_with model: @post, local: true do |f|%>
       <div class="form-group">
-        <%= f.label :title, 'タイトル'%>
+        <%= f.label :title, '投稿タイトル'%>
         <%= f.text_field :title, class: 'form-control w-75', :placeholder => "投稿タイトルを入力してください" %>
       </div>
       <div class="form-group">
