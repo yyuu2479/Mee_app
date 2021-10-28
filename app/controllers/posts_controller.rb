@@ -7,19 +7,19 @@ class PostsController < ApplicationController
     genre = params[:genre]
     # ソートする内容によって処理を分岐させてます
     if sort == 'new' && genre.present?
-      @posts = Kaminari.paginate_array(Post.sort_new_genre(sort, genre)).page(params[:page]).per(15)
+      @posts = Kaminari.paginate_array(Post.sort_new_genre(sort, genre)).page(params[:page]).per(20)
     elsif sort == 'old' && genre.present?
-      @posts = Kaminari.paginate_array(Post.sort_old_genre(sort, genre)).page(params[:page]).per(15)
+      @posts = Kaminari.paginate_array(Post.sort_old_genre(sort, genre)).page(params[:page]).per(20)
     elsif sort.present? && genre.blank?
-      @posts = Kaminari.paginate_array(Post.sort_for(sort)).page(params[:page]).per(15)
+      @posts = Kaminari.paginate_array(Post.sort_for(sort)).page(params[:page]).per(20)
     else
-      @posts = Kaminari.paginate_array(Post.all.reverse_order).page(params[:page]).per(15)
+      @posts = Kaminari.paginate_array(Post.all.reverse_order).page(params[:page]).per(20)
     end
   end
 
   def show
     @post = Post.find(params[:id])
-    @post_comments = PostComment.where(post_id: @post.id).order(created_at: :desc)
+    @post_comments = PostComment.where(post_id: @post.id).order(created_at: :desc).page(params[:page]).per(12)
   end
 
   def edit

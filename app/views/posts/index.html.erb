@@ -6,7 +6,7 @@
   <div class="form-group">
     <%= form_with url: posts_path, method: :get, remote: true do |f| %>
       <div class="row">
-        <div class="col-5 col-md-3">
+        <div class="col-5 col-md-3 pr-0">
           <%= f.select :sort, options_for_select({'投稿新しい順'=>'new', '投稿が古い順' =>'old'}), {}, class: "form-control" %>
         </div>
         <div class="col-5 col-md-3">
@@ -19,6 +19,5 @@
   <div id="posts_index" class="row">
       <%= render 'posts/list', posts: @posts %>
   </div>
-
   <%= paginate @posts %>
 </div>
