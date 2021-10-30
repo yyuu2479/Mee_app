@@ -23,8 +23,19 @@
 - [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1coUNwpfLQBZBB4Ngeb4jT8fwX6oCnpN5348e6TvAk9A/edit?usp=sharing)
 
 ## 機能一覧(チャレンジ要素一覧)
-https://docs.google.com/spreadsheets/d/1JIKrrLIDg4l8e_K9Gf3ELgxnmuX5sFx62ghOC43_gzY/edit?usp=sharing
+- [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1JIKrrLIDg4l8e_K9Gf3ELgxnmuX5sFx62ghOC43_gzY/edit?usp=sharing)
 
 ## 使用素材
 - イラスト画像: [ソコスト 商用可・フリーのイラスト素材集](https://soco-st.com/)
 - フリー画像：[O-DAN](https://o-dan.net/ja/)
+
+## サイトURL
+- [http://54.64.242.108/](http://54.64.242.108/)
+- PF用のゲストログイン機能があるので利用してください
+
+## 開発環境
+- OS: Linux
+- 使用言語: HTML,CSS,JavaScript,Ruby
+- フレームワーク: Ruby on Rails(Ruby), Bootstrap(CSS)
+- JSライブラリ: jQuery
+- IDE：Cloud9
