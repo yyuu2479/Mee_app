@@ -22,10 +22,10 @@
         <div class="row">
           <% if @model == 'user'%>
             <!--ユーザー側の検索結果-->
-            <%= render 'searchs/search_user', content: @content, results: @results %>
+            <%= render 'users/list', users: @results %>
           <% elsif @model == 'post' %>
             <!--投稿側の検索結果-->
-            <%= render 'searchs/search_post', content: @content, results: @results %>
+            <%= render 'posts/list', posts: @results %>
           <% end %>
         </div>
         <%= paginate @results %>
